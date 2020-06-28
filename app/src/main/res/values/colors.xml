@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_60">#99FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black_1">#a09f9e</color>
+    <color name="black_2">#807f7d</color>
+    <color name="black_3">#2d2a26</color>
+    <color name="black_50">#80000000</color>
+
+    <color name="pink">#f27979</color>
+    <color name="disabled_pink">#f8bcbc</color>
+
+
+
+    <color name="pink_60">#99f27979</color>
+    <color name="gray">#a398a2</color>
+    <color name="gray_1">#eeeeee</color>
+    <color name="gray_2">#abaaaa</color>
+    <color name="gray_3">#d9d9d8</color>
+    <color name="gray_4">#b3b3b3</color>
+    <color name="gray_5">#cccccc</color>
+    <color name="gray_6">#959593</color>
+
+    <color name="violet">#9c5bb7</color>
+    <color name="violet_50">#809c5bb7</color>
+    <color name="violet_60">#999c5bb7</color>
+    <color name="green">#84b736</color>
+    <color name="green_50">#8084b736</color>
+    <color name="green_60">#9984b736</color>
+    <color name="yellow">#f3ad17</color>
+    <color name="yellow_50">#80f3ad17</color>
+    <color name="yellow_60">#99f3ad17</color>
+    <color name="yellow_1">#fcd752</color>
+    <color name="yellow_variant">#d1a650</color>
+
+    <color name="yellow_variant2">#f3ae17</color>
+
+    <color name="black_text">#82817f</color>
+    <color name="black_text_1">#5f5f5e</color>
+    <color name="black_text2">#5f5f5e</color>
+
+
+
+    <color name="color_bg_pink">#f27979</color>
+    <color name="pink_1">#f6a1a1</color>
+
+    <color name="color_bg_green">#84b636</color>
+    <color name="color_bg_purple">#9c5bb7</color>
+    <color name="color_white_title">#ffffff</color>
+    <color name="color_black_edittext">#605e5e</color>
+    <color name="color_black_line">#cfcece</color>
+    <color name="color_fb_bg">#3b5999</color>
+
+    <color name="black_overlay">#4D000000</color>
+    <color name="green_40">#9dc55e</color>
+
+    <color name="divider_color">#c0c0bf</color>
+
+
+    <!--For material searchview-->
+    <!--<color name="search_layover_bg">#50000000</color>-->
+
+    <array name="colorArry">
+        <item>@color/violet</item>
+        <item>@color/green</item>
+        <item>@color/pink</item>
+        <item>@color/yellow</item>
+    </array>
+
+</resources>

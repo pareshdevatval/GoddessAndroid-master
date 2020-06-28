@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.krystal.goddesslifestyle">
+
+    <application
+        android:name=".GoddessLifeStyleApp"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/app_icon_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemeNoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup">
+        <activity
+            android:name=".ui.activity.SplashActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HowToUseAppActivity"
+            android:configChanges="orientation|screenSize">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.community.PlayVideoActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity
+            android:name=".ui.activity.SelectCityStateActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyPlanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.shop.PaymentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.WaveActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.shop.OrderReviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.shop.CartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.shop.ProductDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.video_library.VideoDetailsListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.subscription.SubscriptionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.VideoPlayerActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.main_activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".TestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.of_the_month.OfTheMonthActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.LoginActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ForgetPasswordActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SignUpActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.TutorialActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FullScreenImageActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.recipe_details.RecipeDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.recipe.HowToAddRecipeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.community.ActivityComments"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".ui.profile.MyProfileActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.profile.EditProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.profile.ChangesPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FavouriteRecipesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.NotificationActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FAQActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ContactUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OrderListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FilterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OrderStatusActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.MyAddressListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.OrderDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AddAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.profile.YogaPointsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.LeaderBoardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.EditAddressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.DialogActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="826a1b3cfb7841f1d027f8fb2c575a500adf013f" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.krystal.goddesslifestyle.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
+            android:name=".GenericFileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <service
+            android:name=".fcm.FirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- For In-App Billings -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

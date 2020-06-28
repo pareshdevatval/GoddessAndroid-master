@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="activity"
+            type="com.krystal.goddesslifestyle.ui.subscription.SubscriptionActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.subscription.SubscriptionActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.30"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            app:srcCompat="@drawable/img_subscription"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitXY"/>
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/app_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/rounde_top_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            android:paddingTop="@dimen/_15sdp"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:translationY="@dimen/_minus15sdp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true" >
+
+                <include
+                    android:id="@+id/basic_plans"
+                    layout="@layout/membership_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/premium_plans"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp"
+                    android:animateLayoutChanges="true"/>
+
+                <include
+                    android:id="@+id/premium_plans"
+                    layout="@layout/membership_layout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/basic_plans"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:animateLayoutChanges="true"/>
+                
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/subscription_barrier"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="basic_plans, premium_plans"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:barrierDirection="bottom"/>
+
+                <!---->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_subscribe_now"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="@string/subscribe_now"
+                    app:layout_constraintTop_toBottomOf="@+id/subscription_barrier"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    style="@style/pink_button"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{(v) -> activity.onClick(v)}"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/btn_subscribe_now"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@string/subscription_desc"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    style="@style/small_poppins_medium"
+                    android:textColor="@color/black_text"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_free_trial"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="@string/free_trial"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_desc"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    style="@style/pink_button"
+                    android:textAllCaps="false"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{(v) -> activity.onClick(v)}"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_restore_purchase"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:text="@string/restore_purchase"
+                    app:layout_constraintTop_toBottomOf="@+id/btn_free_trial"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    style="@style/pink_button"
+                    android:textAllCaps="false"
+                    android:textColor="@color/pink"
+                    android:background="@android:color/white"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:onClick="@{(v) -> activity.onClick(v)}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

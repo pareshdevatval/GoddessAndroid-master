@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.krystal.goddesslifestyle.ui.activity.LoginActivity" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_bg_pink"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSkip"
+            style="@style/lbl_skip_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_skip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{(v) -> activity.onClick(v)}"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWelcome"
+            style="@style/lbl_welcome_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_welcome"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvSignIn" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSignIn"
+            style="@style/lbl_title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lbl_Sign_in"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/guideline" />
+
+        <!--app:srcCompat="@drawable/img_lotus"-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginEnd="@dimen/_25sdp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/img_lotus"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_110sdp"
+            android:layout_marginRight="@dimen/_25sdp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.32"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/white_top_rounded"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_30sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_20sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvEmail"
+                        style="@style/lbl_form_field_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_email"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtEmail"
+                        style="@style/editText_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_enter_email"
+                        android:inputType="textEmailAddress"
+                        app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPassword"
+                        style="@style/lbl_form_field_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/lbl_password"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/edtEmail" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtPassword"
+                        style="@style/editText_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_password_show"
+                        android:hint="@string/hint_password"
+                        android:inputType="textPassword"
+                        app:layout_constraintTop_toBottomOf="@id/tvPassword" />
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/chbRememberMe"
+                        style="@style/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:button="@drawable/checkbox_selector"
+                        android:paddingLeft="@dimen/_5sdp"
+                        android:text="@string/lbl_remember_me"
+                        android:textColor="@color/color_black_edittext"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/edtPassword" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvForgotPassword"
+                        style="@style/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lbl_forgot_password_que"
+                        android:onClick="@{()->activity.startForgetPasswordActivity()}"
+                        android:textColor="@color/color_black_edittext"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/chbRememberMe"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/chbRememberMe" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnLogin"
+                        style="@style/button_semibold"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/lbl_login_in"
+                        app:layout_constraintTop_toBottomOf="@id/tvForgotPassword" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvOR"
+                        style="@style/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/dark_circle"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/lbl_or"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnFacebook"
+                        style="@style/button_semibold"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/color_fb_bg"
+                        android:drawableLeft="@drawable/ic_fb"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/lbl_continue_with_fb"
+                        app:layout_constraintTop_toBottomOf="@id/tvOR" />
+
+                    <!--<com.google.android.gms.common.SignInButton
+                        android:id="@+id/btn_google_sign_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:padding="0dp"
+                        app:layout_constraintTop_toBottomOf="@+id/btnFacebook"/>-->
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_google_sign_in"
+                        style="@style/button_semibold"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/btn_google_signin_light_normal_hdpi"
+                        android:textColor="@color/color_black_edittext"
+                        android:padding="@dimen/_10sdp"
+                        android:text="@string/lbl_continue_with_google"
+                        app:layout_constraintTop_toBottomOf="@id/btnFacebook" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvHaveAnAccount"
+                        style="@style/tutorial_lbl"
+                        android:textColor="@color/color_black_edittext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:text="@string/lbl_dont_have_account"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/btn_google_sign_in"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

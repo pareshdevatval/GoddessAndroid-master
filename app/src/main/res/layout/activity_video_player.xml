@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.VideoPlayerActivity">
+
+        <!--The "show_timeout" value tells the PlayerView the delay in milliseconds before the control
+        is hidden after the user last interacted with it. -->
+
+        <!--The fastforward_increment and rewind_increment values tell the player the time in
+        milliseconds to jump forward or backwards when the user taps the fast forward or rewind buttons.-->
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:show_timeout="2000"
+            app:fastforward_increment="10000"
+            app:rewind_increment="10000"
+            />
+        <!--app:controller_layout_id="@layout/custom_playback_control"-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

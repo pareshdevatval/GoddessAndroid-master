@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pink">
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/app_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:background="@color/pink"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:paddingBottom="@dimen/_10sdp"
+                tools:context=".ui.activity.AddAddressActivity">
+
+                <RelativeLayout
+                    android:id="@+id/rlView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:elevation="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvUseMayCurLoc"
+                        style="@style/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@color/white"
+                        android:drawableStart="@drawable/ic_current_location"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:text="@string/lbl_use_may_current_location"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/_12ssp" />
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTabTO"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@string/tab_to_auto_fill_the_address_fields"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rlView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAddressTitle"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@string/address_title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTabTO" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etAddAddress"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_title"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    app:layout_constraintTop_toBottomOf="@id/tvAddressTitle" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPinCode"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:text="@string/pincode"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etAddAddress" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etPinCode"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_pincode"
+                    android:inputType="number"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    app:layout_constraintTop_toBottomOf="@id/tvPinCode" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHouseNo"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:text="@string/house_no_building_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etPinCode" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etHouseNo"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_building_name"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    app:layout_constraintTop_toBottomOf="@id/tvHouseNo" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRoadName"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:drawableEnd="@drawable/ic_search"
+                    android:text="@string/road_name_area_colony"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etHouseNo" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etRoadName"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_road_area_colony_"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    app:layout_constraintTop_toBottomOf="@id/tvRoadName" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCity"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:drawableEnd="@drawable/ic_search"
+                    android:text="@string/city"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintEnd_toStartOf="@id/tvState"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etRoadName" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etCity"
+                    style="@style/editText_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_city"
+                    android:inputType="none"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    android:editable="false"
+                    app:layout_constraintEnd_toStartOf="@id/tvState"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCity" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvState"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:backgroundTint="@color/pink_1"
+                    android:text="@string/state"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvCity"
+                    app:layout_constraintTop_toBottomOf="@id/etRoadName" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etState"
+                    style="@style/editText_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_state"
+                    android:inputType="none"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    android:editable="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvCity"
+                    app:layout_constraintTop_toBottomOf="@id/tvCity" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCountry"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:backgroundTint="@color/pink_1"
+                    android:text="@string/lbl_country"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etCity"/>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etCountry"
+                    style="@style/editText_style"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_country"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCountry" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLandMark"
+                    style="@style/lbl_form_field_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:text="@string/landmark_optional"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/address_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etCountry" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etLandMark"
+                    style="@style/editText_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/pink_1"
+                    android:hint="@string/enter_landmark"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="@dimen/address_su_title"
+                    app:layout_constraintTop_toBottomOf="@id/tvLandMark" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@id/btnSave"
+                    style="@style/poppins_medium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/address_margin_top"
+                    android:background="@color/white"
+                    android:text="@string/update_amp_proceed"
+                    android:textAllCaps="false"
+                    android:textColor="@color/pink"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintTop_toBottomOf="@id/etLandMark" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

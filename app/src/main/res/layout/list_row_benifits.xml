@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/tiny_poppins_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_3sdp"
+        android:paddingBottom="@dimen/_3sdp"
+        android:text="@string/lorem_ipsum_small"
+        android:textColor="@color/white"
+        android:drawableStart="@drawable/ic_right_tick"
+        android:drawableLeft="@drawable/ic_right_tick"
+        android:drawablePadding="@dimen/_5sdp"
+        android:textSize="10sp"/>
+</layout>

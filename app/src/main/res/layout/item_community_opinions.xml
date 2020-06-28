@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@color/white"
+        android:paddingStart="@dimen/_15sdp"
+        android:paddingEnd="@dimen/_15sdp"
+        android:paddingBottom="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCommunityDesc"
+            style="@style/poppins_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="@{opiniounData.gco_text}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/clTop" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLike"
+            style="@style/poppins_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawableStart="@{opiniounData.already_liked? @drawable/ic_select_like : @drawable/ic_unselect_like }"
+            android:drawableLeft="@{opiniounData.already_liked? @drawable/ic_select_like : @drawable/ic_unselect_like }"
+            android:drawablePadding="@dimen/_7sdp"
+            android:includeFontPadding="false"
+            android:padding="@dimen/_5sdp"
+            android:text="@{opiniounData.likes_count}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCommunity" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvComment"
+            style="@style/poppins_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:drawableStart="@drawable/ic_comment"
+            android:drawableLeft="@drawable/ic_comment"
+            android:drawablePadding="@dimen/_7sdp"
+            android:includeFontPadding="false"
+            android:padding="@dimen/_5sdp"
+            android:text="@{opiniounData.comments_count}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivCommunity" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_dots" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCommunityTime"
+                style="@style/poppins_reg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:maxLines="2"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivOption"
+                app:layout_constraintStart_toEndOf="@id/ivUser"
+                app:layout_constraintTop_toBottomOf="@id/tvCommunityName" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCommunityName"
+                style="@style/poppins_medium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:layout_marginRight="@dimen/_2sdp"
+                android:maxLines="2"
+                android:text="@{opiniounData.gco_show_identity==1 ? opiniounData.added_by.u_user_name :  @string/lbl_anonymous}"
+                android:textColor="@color/violet"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toTopOf="@id/tvCommunityTime"
+                app:layout_constraintEnd_toStartOf="@id/ivOption"
+                app:layout_constraintStart_toEndOf="@id/ivUser"
+                app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+            <com.krystal.goddesslifestyle.custom_views.CircleImageView
+                android:id="@+id/ivUser"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ivCommunity"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toBottomOf="@id/tvCommunityDesc" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/vp_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:dotsColor="@color/violet"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="9dp"
+            app:dotsSpacing="3dp"
+            app:dotsStrokeColor="@color/violet"
+            app:dotsStrokeWidth="@dimen/_1sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivCommunity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.krystal.goddesslifestyle.utils.AppUtils" />
+
+        <variable
+            name="opiniounData"
+            type="com.krystal.goddesslifestyle.data.response.CommunityOpinionResult" />
+    </data>
+
+</layout>

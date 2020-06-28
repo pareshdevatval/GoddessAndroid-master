@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/violet">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNoRecipesFound"
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="@dimen/_260sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_no_opinion" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleNoRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/no_opinions"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            style="@style/poppins_semi_bold"
+            android:textSize="@dimen/_16sdp"
+           app:layout_constraintTop_toBottomOf="@id/ivNoRecipesFound"/>
+        <androidx.appcompat.widget.AppCompatTextView
+
+            android:id="@+id/tvMsgNoRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/be_the_first_to_share_your_experience"
+            android:textColor="@color/white"
+            android:gravity="center"
+            style="@style/poppins_reg"
+            android:textSize="@dimen/_14sdp"
+            android:paddingBottom="@dimen/_30sdp"
+           app:layout_constraintTop_toBottomOf="@id/tvTitleNoRecipe"/>
+         </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

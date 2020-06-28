@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white_60"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="@dimen/_10sdp"
+            tools:context=".ui.profile.MyProfileActivity">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/pink"
+                app:cardCornerRadius="@dimen/card_view_corner"
+                app:cardElevation="@dimen/_5sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_20sdp">
+
+                    <include
+                        android:id="@+id/toolbarLayout"
+                        layout="@layout/app_toolbar" />
+
+                    <io.netopen.hotbitmapgg.library.view.RingProgressBar
+                        android:id="@+id/progress_bar_1"
+                        android:layout_width="@dimen/_140sdp"
+                        android:layout_height="@dimen/_140sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/ivMyprofile"
+                        app:layout_constraintEnd_toEndOf="@id/ivMyprofile"
+                        app:layout_constraintStart_toStartOf="@id/ivMyprofile"
+                        app:layout_constraintTop_toTopOf="@id/ivMyprofile"
+                        app:max="100"
+                        app:ringColor="@color/gray"
+                        app:ringProgressColor="@color/yellow"
+                        app:ringWidth="6dp"
+                        app:style="STROKE"
+                        app:textColor="@color/colorPrimary"
+                        app:textIsShow="true"
+                        app:textSize="16sp" />
+
+                    <com.krystal.goddesslifestyle.custom_views.CircleImageView
+                        android:id="@+id/ivMyprofile"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="@dimen/_120sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
+                        app:srcCompat="@drawable/ic_placeholder_square" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvUserName"
+                        style="@style/poppins_semi_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:drawableEnd="@drawable/ic_edit"
+                        android:drawableRight="@drawable/ic_edit"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_18ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivMyprofile" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMaiden"
+                        style="@style/poppins_medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/yellow_1"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+
+                    <LinearLayout
+                        android:id="@id/view"
+                        android:layout_width="2dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@color/gray"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="@id/tvQueenPointLeft"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/ivQueen" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivQueen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@id/view"
+                        app:srcCompat="@drawable/ic_maiden"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMaiden" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvQueenPoint"
+                        style="@style/poppins_reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_24ssp"
+                        app:layout_constraintEnd_toEndOf="@id/view"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivQueen" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvQueenPointLeft"
+                        style="@style/poppins_reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Point left"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="@id/view"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvQueenPoint" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivStart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/view"
+                        app:layout_constraintTop_toBottomOf="@id/tvMaiden"
+                        app:srcCompat="@drawable/ic_star" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvstartPoint"
+                        style="@style/poppins_reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_24ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/view"
+                        app:layout_constraintTop_toBottomOf="@id/ivStart" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPoitns"
+                        style="@style/poppins_reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Points"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/view"
+                        app:layout_constraintTop_toBottomOf="@id/tvstartPoint" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewInviteEarn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/card_view_corner"
+                app:cardElevation="@dimen/_5sdp"
+                app:layout_constraintEnd_toEndOf="@id/cardViewProfile"
+                app:layout_constraintStart_toStartOf="@id/cardViewProfile"
+                app:layout_constraintTop_toBottomOf="@id/cardViewProfile">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_8sdp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivEarn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvInvite"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvInvite"
+                        app:srcCompat="@drawable/ic_invite_and_earn" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvInviteAndEarn"
+                        style="@style/poppins_semi_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:text="@string/lbl_invite_earn"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toTopOf="@id/tvShareCode"
+                        app:layout_constraintStart_toEndOf="@id/ivEarn"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvShareCode"
+                        style="@style/poppins_reg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:textColor="@color/black_text"
+                        android:textSize="@dimen/_11ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tvInvite"
+                        app:layout_constraintStart_toEndOf="@id/ivEarn"
+                        app:layout_constraintTop_toBottomOf="@id/tvInviteAndEarn" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvInvite"
+                        style="@style/poppins_reg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_10sdp"
+                        android:background="@drawable/rounded_pink_bg_second"
+                        android:paddingStart="@dimen/_8sdp"
+                        android:paddingTop="@dimen/_3sdp"
+                        android:paddingEnd="@dimen/_8sdp"
+                        android:paddingBottom="@dimen/_3sdp"
+                        android:text="@string/lbl_invite"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewLink"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/card_view_corner"
+                app:cardElevation="@dimen/_5sdp"
+                app:layout_constraintEnd_toEndOf="@id/cardViewProfile"
+                app:layout_constraintStart_toStartOf="@id/cardViewProfile"
+                app:layout_constraintTop_toBottomOf="@id/cardViewInviteEarn">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/viewFavouritesRecipes"
+                        layout="@layout/layout_images_and_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/viewMySubscriptionPlan"
+                        layout="@layout/layout_images_and_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/viewMyOrder"
+                        layout="@layout/layout_images_and_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/viewMyAddress"
+                        layout="@layout/layout_images_and_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/viewChangesPassword"
+                        layout="@layout/layout_images_and_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnLogOut"
+                style="@style/button_semibold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/lbl_logout"
+                app:layout_constraintEnd_toEndOf="@id/cardViewProfile"
+                app:layout_constraintStart_toStartOf="@id/cardViewProfile"
+                app:layout_constraintTop_toBottomOf="@id/cardViewLink" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

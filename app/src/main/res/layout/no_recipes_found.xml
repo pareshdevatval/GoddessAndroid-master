@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green">
+        <!--<com.imobdev.goddesslifestyle.utils.WaveView
+            android:id="@+id/wave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rotation="180"
+            app:layout_constraintBottom_toBottomOf="parent" />-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNoRecipesFound"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_180sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/no_recipes" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleNoRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/no_recipe_found"
+            android:textColor="@color/white"
+            android:gravity="center"
+            style="@style/poppins_semi_bold"
+            android:textSize="@dimen/_16sdp"
+           app:layout_constraintTop_toBottomOf="@id/ivNoRecipesFound"/>
+        <androidx.appcompat.widget.AppCompatTextView
+
+            android:id="@+id/tvMsgNoRecipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/there_is_no_recipe_at_the_moment"
+            android:textColor="@color/white"
+            android:gravity="center"
+            style="@style/poppins_reg"
+            android:textSize="@dimen/_14sdp"
+            android:paddingBottom="@dimen/_30sdp"
+           app:layout_constraintTop_toBottomOf="@id/tvTitleNoRecipe"/>
+         </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

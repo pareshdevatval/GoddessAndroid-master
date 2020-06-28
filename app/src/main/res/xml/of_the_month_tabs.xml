@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs size="24dp"
+    space="24dp">
+
+    <tab
+        inactiveColor="@color/white"
+        activeColor="@color/green"
+        drawable="@drawable/ic_goddess_tab_white"/>
+
+    <tab
+        inactiveColor="@color/white"
+        activeColor="@color/green"
+        drawable="@drawable/ic_goddess_tab_white"/>
+
+    <tab
+        inactiveColor="@color/white"
+        activeColor="@color/green"
+        drawable="@drawable/ic_goddess_tab_white"/>
+</tabs>

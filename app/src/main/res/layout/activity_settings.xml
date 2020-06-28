@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/pink">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="56dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbarLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/pink"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:paddingBottom="@dimen/_10sdp"
+                tools:context=".ui.profile.MyProfileActivity">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCancelAccount"
+                    style="@style/button_semibold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@color/white"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/lbl_cancel_account"
+                    android:textColor="@color/black_1"
+                    app:layout_constraintEnd_toEndOf="@id/cardViewProfile"
+                    app:layout_constraintStart_toStartOf="@id/cardViewProfile"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewLink" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvInformation"
+                    style="@style/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:drawableStart="@drawable/ic_white_info"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="@string/lbl_goddess_information"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="@id/cardViewProfile"
+                    app:layout_constraintStart_toStartOf="@id/cardViewProfile"
+                    app:layout_constraintTop_toBottomOf="@id/cardViewProfile" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNotification"
+                    style="@style/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:drawableStart="@drawable/ic_notification"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:text="@string/lbl_notification"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewLink"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/card_view_corner"
+                    app:cardElevation="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="@id/cardViewProfile"
+                    app:layout_constraintStart_toStartOf="@id/cardViewProfile"
+                    app:layout_constraintTop_toBottomOf="@id/tvInformation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <include
+                            android:id="@+id/viewInviteFriend"
+                            layout="@layout/layout_images_and_textview_second" />
+
+                        <include
+                            android:id="@+id/viewAboutUs"
+                            layout="@layout/layout_images_and_textview_second" />
+
+                        <include
+                            android:id="@+id/viewMyContactUs"
+                            layout="@layout/layout_images_and_textview_second" />
+
+                        <include
+                            android:id="@+id/viewFAQ"
+                            layout="@layout/layout_images_and_textview_second" />
+
+                        <include
+                            android:id="@+id/viewHowToUseApp"
+                            layout="@layout/layout_images_and_textview_second" />
+
+                        <include
+                            android:id="@+id/viewHowToUseAppVideo"
+                            layout="@layout/layout_images_and_textview_second" />
+
+                        <include
+                            android:id="@+id/viewJoinFB"
+                            layout="@layout/layout_images_and_textview_second" />
+
+                        <include
+                            android:id="@+id/viewJoinInstagram"
+                            layout="@layout/layout_images_and_textview_second" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/card_view_corner"
+                    app:cardElevation="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="@id/tvNotification"
+                    app:layout_constraintStart_toStartOf="@id/tvNotification"
+                    app:layout_constraintTop_toBottomOf="@id/tvNotification">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_20sdp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivPracticeNoti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_off" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivCommunityNoti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvPracticeNoti"
+                            app:srcCompat="@drawable/ic_off" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivShoppingNoti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvCommunityNoti"
+                            app:srcCompat="@drawable/ic_off" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvPracticeNoti"
+                            style="@style/poppins_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="@string/lbl_practice_notifications"
+                            android:textColor="@color/black_1"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvShoppingNoti"
+                            style="@style/poppins_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="@string/lbl_shopping_notifications"
+                            android:textColor="@color/black_1"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvCommunityNoti" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvCommunityNoti"
+                            style="@style/poppins_medium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:text="@string/lbl_community_notifications"
+                            android:textColor="@color/black_1"
+                            android:textSize="@dimen/_12ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tvPracticeNoti" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/app_toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

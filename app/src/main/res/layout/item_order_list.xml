@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@color/white"
+        android:padding="@dimen/_5sdp">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:cardCornerRadius="@dimen/_1sdp"
+            app:cardElevation="@dimen/_7sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvYear"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:text="2019"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDate"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="23"
+                    android:textAlignment="center"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/_22ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvYear"
+                    app:layout_constraintTop_toBottomOf="@id/tvYear" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMonth"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DEC"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvYear"
+                    app:layout_constraintTop_toBottomOf="@id/tvDate" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvItems"
+                    style="@style/poppins_semi_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:text="@string/lbl_items"
+                    android:textColor="@color/black_2"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintStart_toEndOf="@id/tvYear"
+                    app:layout_constraintTop_toTopOf="@id/tvYear" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDeliveryChange"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:text="@string/lbl_delivery_changes"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvItems"
+                    app:layout_constraintTop_toBottomOf="@id/tvItems" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvOrder"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:text="@string/lbl_order"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toStartOf="@id/tvItems"
+                    app:layout_constraintTop_toBottomOf="@id/tvDeliveryChange" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvOrderId"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toEndOf="@id/tvOrder"
+                    app:layout_constraintTop_toBottomOf="@id/tvDeliveryChange" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPrice"
+                    style="@style/poppins_semi_bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="$400.00"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvYear" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFree"
+                    style="@style/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:text="@string/lbl_free"
+                    android:textAllCaps="true"
+                    android:textColor="@color/black_text"
+                    android:textSize="@dimen/_12ssp"
+                    app:layout_constraintEnd_toEndOf="@id/tvPrice"
+                    app:layout_constraintTop_toBottomOf="@id/tvPrice" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDeliveryStatus"
+                    style="@style/poppins_medium"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/gray_1"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="To be delivery by 28 Dec 2019"
+                    android:textAlignment="center"
+                    android:textColor="@color/black_2"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintEnd_toEndOf="@id/tvPrice"
+                    app:layout_constraintStart_toStartOf="@id/tvYear"
+                    app:layout_constraintTop_toBottomOf="@id/tvOrder" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvImages"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@id/tvPrice"
+                    app:layout_constraintStart_toStartOf="@id/tvYear"
+                    app:layout_constraintTop_toBottomOf="@id/tvDeliveryStatus"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_order_list_in_images_list" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="@id/tvPrice"
+                    app:layout_constraintStart_toStartOf="@id/tvYear"
+                    app:layout_constraintTop_toBottomOf="@id/rvImages">
+
+                    <include
+                        android:id="@+id/viewBuyItAgain"
+                        layout="@layout/layout_images_and_textview_three" />
+
+                    <include
+                        android:id="@+id/viewViewOrderDetails"
+                        layout="@layout/layout_images_and_textview_three" />
+
+                    <include
+                        android:id="@+id/viewTrackThisOrder"
+                        layout="@layout/layout_images_and_textview_three" />
+
+                    <include
+                        android:id="@+id/viewEmailThisInvoice"
+                        layout="@layout/layout_images_and_textview_three" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

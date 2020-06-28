@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/app_name"
+        android:visibility="gone"/>
+
+    <!--android:src="@drawable/loading_ring"-->
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/app_name"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvInitializing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Initializing Calender"
+        android:textColor="@color/white"
+        style="@style/medium_poppins_medium"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_20sdp"/>
+
+
+</RelativeLayout>

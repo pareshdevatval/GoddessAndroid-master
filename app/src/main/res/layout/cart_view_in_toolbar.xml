@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_cart"
+        android:layout_toLeftOf="@+id/tv_cart_count"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginRight="@dimen/_minus8sdp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_cart_count"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:text="15"
+        android:textColor="@color/yellow"
+        android:background="@drawable/white_circle_with_border"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:padding="@dimen/_3sdp"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        style="@style/poppins_medium"
+        android:textSize="@dimen/_8ssp"/>
+
+</RelativeLayout>

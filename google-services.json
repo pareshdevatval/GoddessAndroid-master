@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "397413452238",
+    "firebase_url": "https://goddess-lifestyle.firebaseio.com",
+    "project_id": "goddess-lifestyle",
+    "storage_bucket": "goddess-lifestyle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:397413452238:android:1eb65d64500931b221c39f",
+        "android_client_info": {
+          "package_name": "com.krystal.goddesslifestyle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "397413452238-3jjp9lg5cvsr6eis4eib3chpt226fa1h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.krystal.goddesslifestyle",
+            "certificate_hash": "a7263b476b00819d9fccd1dd5d49863456f171b0"
+          }
+        },
+        {
+          "client_id": "397413452238-ni7cnao6tdh2uame1njqla20k480huu5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.krystal.goddesslifestyle",
+            "certificate_hash": "113c5b75fdbd747c42a8ee2c7944dfdcac914f53"
+          }
+        },
+        {
+          "client_id": "397413452238-sf0khgp6mcp11g120u1qi7d9kcsdogd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD_ryq62rBAe7Y2AXa_ApbU8CADUAdowc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "397413452238-sf0khgp6mcp11g120u1qi7d9kcsdogd9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "397413452238-jshk2rg2pdvlsnjtjcnvhdlbvv0p905v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.krystal.goddesslifestyle"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

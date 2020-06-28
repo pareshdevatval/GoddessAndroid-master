@@ -1,0 +1,43 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--text dimension-->
+    <dimen name="tiny">8sp</dimen>
+    <dimen name="small">12sp</dimen>
+    <dimen name="regular">14sp</dimen>
+    <dimen name="medium">16sp</dimen>
+    <dimen name="medium2">18sp</dimen>
+    <dimen name="large">20sp</dimen>
+    <dimen name="extra_large">24sp</dimen>
+    <dimen name="huge">30sp</dimen>
+
+    <!--padding dimension-->
+    <dimen name="tiny_padding">@dimen/_2sdp</dimen>
+    <dimen name="small_padding">@dimen/_4sdp</dimen>
+    <dimen name="regular_padding">@dimen/_6sdp</dimen>
+    <dimen name="medium_padding">@dimen/_8sdp</dimen>
+    <dimen name="large_padding">@dimen/_10sdp</dimen>
+    <dimen name="extra_large_padding">@dimen/_12sdp</dimen>
+    <dimen name="huge_padding">@dimen/_14sdp</dimen>
+    <dimen name="extra_huge_padding">@dimen/_20sdp</dimen>
+    <dimen name="highest_padding">@dimen/_40sdp</dimen>
+
+    <!--tab dimension>-->
+    <dimen name="tab_max_width">264dp</dimen>
+    <dimen name="tab_padding_bottom">16dp</dimen>
+    <dimen name="tab_label">14sp</dimen>
+    <dimen name="custom_tab_layout_height">72dp</dimen>
+
+    <dimen name="tab_bg_rounded_corner">30dp</dimen>
+
+    <dimen name="card_view_corner">15dp</dimen>
+    <dimen name="address_title">18dp</dimen>
+    <dimen name="address_su_title">15dp</dimen>
+    <dimen name="address_margin_top">20dp</dimen>
+
+    <!--for material searchview-->
+    <!--<dimen name="search_icon_padding">12dp</dimen>
+    <dimen name="search_view_text_padding">65dp</dimen>-->
+</resources>

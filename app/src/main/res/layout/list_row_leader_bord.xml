@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/clIv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/clIv">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPointName"
+                style="@style/poppins_semi_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Points"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvName" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPoints"
+                style="@style/poppins_semi_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1200"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/pink"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPointName" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/clIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvNumber"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/tvCrownGoddess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:elevation="@dimen/_2sdp"
+                app:srcCompat="@drawable/ic_crown_maiden"
+                android:rotation="2" />
+
+            <com.krystal.goddesslifestyle.custom_views.CircleImageView
+                android:id="@+id/iv"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_below="@id/tvCrownGoddess"
+                android:layout_marginTop="-6dp"
+                app:civ_border_color="@color/pink"
+                app:civ_border_width="@dimen/_1sdp" />
+        </RelativeLayout>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            style="@style/poppins_semi_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="ADAM \nGILL"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textAllCaps="true"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@id/clIv"
+            app:layout_constraintStart_toEndOf="@id/clIv"
+            app:layout_constraintTop_toTopOf="@id/clIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNumber"
+            style="@style/poppins_semi_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2nd"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="@id/clIv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/clIv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:background="@color/gray_2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+    </LinearLayout>
+</layout>

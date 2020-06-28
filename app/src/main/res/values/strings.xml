@@ -1,0 +1,435 @@
+<resources>
+    <string name="app_name">Goddess</string>
+    <string name="places_api_key">AIzaSyA6TLxsFmCqD_Cgfo09Jce8wU8c4uhHoeE</string>
+    <!--Common strings-->
+    <string name="action_retry">Retry</string>
+    <string name="msg_no_internet">No internet connection available.</string>
+
+    <!--Common Validation Messages-->
+    <string name="blank_data">Please enter data</string>
+
+    <string name="blank_username">Please enter username</string>
+    <string name="blank_email">Please enter email address</string>
+    <string name="blank_first_name">Please enter first name</string>
+    <string name="blank_last_name">Please enter last name</string>
+    <string name="blank_phone">Please enter phone number</string>
+    <string name="blank_password">Please enter password</string>
+    <string name="blank_current_password">Please enter current password</string>
+    <string name="blank_new_password">Please enter new password</string>
+    <string name="blank_confirm_password">Please enter confirm password</string>
+
+    <string name="blank_title">Please enter title</string>
+    <string name="blank_desc">Please enter description</string>
+    <string name="blank_address">Please select valid address</string>
+    <string name="blank_assign_to">Please select assign to</string>
+
+    <string name="invalid">Invalid data</string>
+    <string name="msg_all_field_required">All fields are required.</string>
+    <string name="invalid_email">Please enter valid email</string>
+    <string name="invalid_confirm_password">Password and confirm password does not match</string>
+    <string name="invalid_password">Password length should be minimum 8 characters.</string>
+    <!--<string name="invalid_password">Please enter valid password, password should be at least 6 characters long with 1 character and 1 number.</string>-->
+    <string name="invalid_phone">Please enter phone number between 10&#8211;15 digits.</string>
+
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="skip">Skip</string>
+    <string name="skip_video">Skip Video</string>
+
+    <!--[START] MainActivity Strings-->
+    <string name="title_december">December: Inner Strength</string>
+    <string name="title_home">Home</string>
+    <string name="title_recipe">Recipe</string>
+    <string name="title_video">Videos</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_shopping">Shopping</string>
+    <string name="goddess">Goddess</string>
+    <string name="recipe">Recipe</string>
+    <string name="teacher">Teacher</string>
+    <string name="share_calender">Share Calendar</string>
+    <string name="features">Features</string>
+    <string name="today_s_practice"><u>Today\'s practice</u></string>
+    <string name="today_s_meal"><u>Today\'s meal plan</u></string>
+    <string name="today_s_journal"><u>Today\'s journal prompt</u></string>
+    <string name="complete_practice">Complete practice</string>
+    <string name="view_recipe">View recipe</string>
+    <string name="share">Share</string>
+    <string name="calories">calories</string>
+    <string name="minutes">minutes</string>
+
+    <string name="lorem_ipsum_long"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem nisi, luctus a leo nec, mollis cursus purus. Praesent eget dapibus orci. In scelerisque sit amet enim eu ullamcorper. Curabitur ultrices enim sit amet quam porttitor, quis mattis nunc aliquam. Phasellus a orci vel ligula cursus porta nec eu erat. Proin fermentum sit amet arcu eu finibus. Integer ultrices est nisi, vitae tincidunt lectus gravida at. Praesent dictum arcu ut justo suscipit euismod. Proin vitae dolor risus. Aliquam ipsum nunc, mattis varius aliquam ut, finibus eget massa. Maecenas ac ultricies ante.
+
+\n\nMaecenas commodo, neque nec mollis convallis, ante eros malesuada ligula, vel tincidunt enim orci non neque. Duis consectetur sit amet quam quis posuere. Donec in nibh porta, mattis ipsum ac, condimentum mi. Ut quam felis, luctus non odio fringilla, vehicula accumsan sapien. Suspendisse ultrices congue vestibulum. Nam et vehicula augue. Quisque feugiat, ipsum sed porta vulputate, nulla urna rutrum eros, ac lacinia arcu mauris vel nunc. Cras a mattis ligula. Donec ac dui est. Vestibulum luctus, risus a malesuada hendrerit, nunc lorem luctus tellus, eu mattis ante ligula id purus. Vivamus pharetra eleifend leo, non mattis leo molestie vel. Nullam interdum dui mi, eu ultricies lacus rhoncus ornare.
+
+\n\nAenean at suscipit velit, ut scelerisque tellus. Proin tempus dolor neque, vel pellentesque urna accumsan vel. Vestibulum euismod arcu magna, ac cursus mauris porttitor vel. Pellentesque sed suscipit turpis. Curabitur porta rhoncus eros, vel fringilla odio volutpat ac. Sed non purus varius purus vehicula pharetra. Mauris a diam mauris. Duis dapibus neque nibh, a consectetur metus tincidunt non. Praesent sodales purus eu ultrices vestibulum. Etiam velit magna, accumsan at ligula vel, varius cursus lectus. Proin quis tincidunt tellus.
+
+\n\nIn consectetur eros eu arcu rutrum ultricies. Maecenas molestie nisi et ornare porttitor. Phasellus id malesuada nunc. Duis maximus ligula ut magna tincidunt malesuada. Integer mattis mi vel ante laoreet laoreet. Nullam et turpis vitae justo euismod luctus. Pellentesque vestibulum elit vitae orci laoreet molestie. </string>
+
+    <string name="goddess_of_the_month">Goddess of the Month</string>
+
+
+    <string name="recipe_of_the_month">Recipe of the Month</string>
+    <string name="teacher_of_the_month">Teacher of the Month</string>
+    <string name="lbl_skip">Skip</string>
+
+
+    <!--[END] MainActivity Strings-->
+
+
+    <!-- User Module(SignIn/SignUp/Tutorial/Forgot password) -->
+    <string name="lbl_welcome">Welcome</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_password">Password</string>
+    <string name="lbl_contact">Contact No.</string>
+    <string name="lbl_confirm_password">Confirm Password</string>
+    <string name="lbl_Sign_in">Sign In</string>
+    <string name="lbl_Sign_up">Sign Up</string>
+    <string name="lbl_login_in">Log in</string>
+    <string name="lbl_remember_me">Remember me</string>
+    <string name="lbl_forgetpassword">Forget\nPassword</string>
+    <string name="lbl_referral_code">Referral</string>
+    <string name="lbl_forgot_password_que">Forgot Password?</string>
+    <string name="lbl_dont_have_account">Don\'t have account? Sign Up</string>
+    <string name="lbl_sign_up">Sign Up</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_contact_no">Contact No.</string>
+    <string name="lbl_have_account_sign_in">Have an account? Sign In</string>
+    <string name="lbl_agree_sign_up">Agree &amp; Sign Up</string>
+    <string name="lbl_sign_up_note">By continuing you agree to our Terms &amp; Conditions and Privacy Policy</string>
+    <string name="lbl_terms_conditions">Terms &amp; Conditions</string>
+    <string name="lbl_privacy_policy">Privacy Policy</string>
+    <string name="lbl_have_account">Have an account?</string>
+    <string name="lbl_forgot_password">Forgot Password</string>
+    <string name="lbl_forgot_pwd_desc">Enter your email,we will send new password to your Email.</string>
+    <string name="lbl_send">Send</string>
+    <string name="lbl_or">OR</string>
+
+    <string name="lbl_continue_with_fb">Continue with Facebook</string>
+    <string name="lbl_continue_with_google">Continue with Google</string>
+
+
+    <string name="hint_enter_email">Enter your Email</string>
+    <string name="hint_password">Enter Password</string>
+    <string name="hint_confrim_password">Enter Confirm Password</string>
+
+    <string name="hint_enter_name">Enter your Name</string>
+    <string name="hint_enter_contact">Enter your Contact Number</string>
+    <string name="hint_enter_referral">Enter Referral code</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+
+    <string name="meal_type">%1$s - %2$s</string>
+    <string name="facebook_app_id">552411208780441</string>
+    <!--fb -->
+    <string name="fb_login_protocol_scheme">fb552411208780441</string>
+    <string name="breakfast">Breakfast</string>
+
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="media_url_mp3"> https://storage.googleapis.com/exoplayer-test-media-0/play.mp3</string>
+
+    <!--
+
+
+    MDPI: Portrait: 320 X 480px. Landscape: 480 X 320px.
+    HDPI: Portrait: 480 X 800px. Landscape: 800 X 480px.
+    XHDPI: Portrait: 720 X 1280px. Landscape: 1280 X 720px.
+    XXHDPI: Portrait: 960 X 1600px. Landscape: 1600 X 960px.
+    XXXHDPI: Portrait: 1280 X 1920px. Landscape: 1920 X 1280px.
+
+-->
+
+
+    <!--36x36 (0.75x) for low-density (ldpi)
+    48x48 (1.0x baseline) for medium-density (mdpi)
+    72x72 (1.5x) for high-density (hdpi)
+    96x96 (2.0x) for extra-high-density (xhdpi)
+    144x144 (3.0x) for extra-extra-high-density (xxhdpi)
+    192x192 (4.0x) for extra-extra-extra-high-density (xxxhdpi)-->
+
+    <!--<string name="media_url_mp3">https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_5MG.mp3</string>-->
+    <string name="media_url_video">http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4</string>
+    <string name="connection_timed_out">Connection Timed Out</string>
+
+    <string name="title_recipes">Recipes</string>
+    <string name="title_video_library">Video Library</string>
+    <string name="title_shop">Goddess Shop</string>
+    <string name="search_recipes">Search recipes…</string>
+    <string name="points">+%1$s</string>
+
+    <string name="monthly_membership">Monthly\nmembership</string>
+    <string name="yearly_membership">Yearly\nmembership</string>
+
+    <string name="basic">Basic</string>
+    <string name="premium">Premium</string>
+
+    <string name="see_all_benifits">See All Benefits</string>
+    <string name="see_less_benifits">See Less Benefits</string>
+    <string name="lorem_ipsum_small">Lorem ipsum dolor sit amet, consecteur.</string>
+    <string name="subscribe_now">subscribe now</string>
+    <string name="free_trial">Start your 7 days free trial</string>
+    <string name="restore_purchase">Restore your purchase</string>
+
+    <!--<string name="subscription_desc">The new price is for new membership only. Current members will still be charged $30.00 monthly / $225.00 annually unless they choose to upgrade it the new gaming features and earn GODDESS points!</string>-->
+    <string name="subscription_desc">The new price is for new membership only. Current members will still be charged %1$s monthly / %2$s annually unless they choose to upgrade it the new gaming features and earn GODDESS points!</string>
+
+    <string name="all_filter">All %1$s</string>
+    <string name="no_video_found">No Video found!</string>
+
+    <string name="no_videos_desc">There is no Video at the moment.</string>
+    <string name="details">Details</string>
+    <string name="ingredients">Ingredients</string>
+
+    <string name="how_to_cook">How to cook</string>
+    <string name="serve">\u0020Serving</string>
+    <string name="no_recipe_found">No Recipe Found!</string>
+    <string name="there_is_no_recipe_at_the_moment">There is no recipe at the moment.</string>
+
+    <string name="lbl_enter">Enter</string>
+    <!--<string name="lbl_share_your_experience">Share your experience</string>-->
+    <string name="lbl_share_your_experience">Join Our Sacred Sisterhood</string>
+
+
+    <string name="lorem_ipsum_community">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lorem nisi, luctus a leo nec, mollis cursus purus. Praesent eget dapibus orci. In scelerisque sit amet enim eu ullamcorper. Curabitur ultrices enim sit amet quam porttitor, quis mattis nunc aliquam. </string>
+    <string name="title_goddess_community">Goddess Community</string>
+    <string name="opinions">opinions</string>
+    <string name="type_a_comment">Type a comment…</string>
+    <string name="click_here"><u>Click here!</u></string>
+    <string name="want_to_add_your_own_recipe">Want to submit your own recipe?</string>
+    <string name="title_how_to_add_own">How to submit your own recipe</string>
+    <string name="lbl_anonymous">Anonymous</string>
+    <string name="lbl_yourself">Yourself</string>
+    <string name="buy_now">BUY NOW</string>
+    <string name="add_to_cart">ADD TO CART</string>
+    <string name="quantity">Quantity</string>
+    <!-- <string name="no_opinions">No Opinions</string>
+    <string name="be_the_first_to_share_your_experience">Be the first to share your experience!!</string>-->
+    <string name="lbl_comments">Comments</string>
+    <string name="msg_enter_comment">Please enter your comment.</string>
+    <string name="select_post_as_a">Please select Post as a.</string>
+    <string name="sku_monthly">monthly_subscription</string>
+    <string name="sku_yearly">yearly_subscription</string>
+    <!--<string name="recipe">Recipes</string>-->
+
+    <string name="licence_key">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwqb0RJWJz31o/qHJKL9DIe3rdqmKeMNgr2qSmxn28zhfsiKup+rKeo4ImGe3IME6vcPlMjWEyzJYdeFFCgmprOuShNYypr5tAO011sJNmm+BATw7cDqUas8zVblMtdQgfy+Qw9teCd9AAPqch2g66Vdf1a0H4H6Eg51sECwj+LH4qCT6zG3ty8dv6Lx3Pr5zF3hbxw7ekiyOTbmwSmw2oaloEcOEG0TIdCAlU85DtGisJKbtgjdRH/QFtY4cngzWbq8urKyQCEBpCzIIXyvoc2+CsQFPJH5L17QSFueCHq4MhbmZ2suqJsotN52qDlb61FYKJbpt5IJPiNOc4++59wIDAQAB</string>
+    <string name="checkout">CHECKOUT</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="place_order">Place Order</string>
+    <string name="delivery_to">Delivery To</string>
+    <string name="change">Change</string>
+    <string name="success">Success!</string>
+    <string name="continue_shopping">Continue Shopping</string>
+
+    <string name="order_success">You have placed order successfully !!\nWe will keep informing you about the delivery !!</string>
+    <string name="currency">$</string>
+    <string name="empty_cart_title">Your Cart is Empty</string>
+
+    <string name="empty_cart_msg">Looks like you haven\'t added anything to your cart yet.</string>
+
+    <string name="search_products">Search products…</string>
+    <string name="krystal_xo">- Krystal xo</string>
+    <!--<string name="community_content">This is the safe space tho share your journey, thoughts &amp; experiences with supportive sister. May be always honour our intent to keep this a confidential, loving and nonjudgmental community. Together we rise higher! </string>-->
+    <string name="community_content">This is a safe space to share your journey, thoughts and experiences with supportive sisters. May we always honour our intent to keep this a confidential, loving and nonjudgmental community. Together we rise higher!</string>
+    <string-array name="week_days">
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+    </string-array>
+    <string-array name="query_suggestions">
+        <item>Bhargav</item>
+        <item>Keshu</item>
+        <item>Abhi</item>
+        <item>Jatin</item>
+        <item>Chirag</item>
+    </string-array>
+    <!--monthly_subscription
+    -->
+
+    <string name="cart_title">My cart(%1$d)</string>
+    <string name="select_five">You have select only 5 Images or Video</string>
+
+    <!--[start]my profile-->
+    <string name="lbl_my_profile">My profile</string>
+    <string name="lbl_favourites_recipes">Favourites recipes</string>
+    <string name="lbl_my_order">My orders</string>
+    <string name="lbl_my_addresses">My Addresses</string>
+    <string name="lbl_changes_password">Change password</string>
+    <string name="lbl_invite">Invite</string>
+    <string name="lbl_logout">Logout</string>
+    <string name="lbl_invite_earn">Invite and earn</string>
+    <string name="lbl_invite_and_earn">Share this code AMCGD4554A </string>
+    <!--[end]my profile-->
+
+    <!--[start]edit profile-->
+    <string name="lbl_edit_profile">Edit \nProfile</string>
+    <string name="lbl_save">Save</string>
+    <string name="lbl_gender">Gender</string>
+    <!--[end]edit profile-->
+
+    <!--[start]changes password-->
+    <string name="lbl_change_password">Change \npassword</string>
+    <string name="lbl_old_password">Old password</string>
+    <string name="lbl_new_password">New password</string>
+    <string name="lbl_enter_new_password">Enter new password</string>
+    <string name="lbl_enter_old_password">Enter old password</string>
+    <string name="lbl_enter_confirm_password">Enter confirm password</string>
+    <!--[end]changes password-->
+
+    <!--[start] notification-->
+    <string name="lbl_notification">Notifications</string>
+    <string name="lbl_clear_all">Clear All</string>
+    <string name="lbl_unread_count">You have %1$s unread notifications</string>
+    <!--[end] notification-->
+
+    <!--[start] FAQ-->
+    <string name="lbl_faq">FAQ\'s</string>
+    <!--[end] FAQ-->
+
+    <!--[start] Setting-->
+    <string name="lbl_setting">Settings</string>
+    <string name="lbl_practice_notifications">Practice notifications</string>
+    <string name="lbl_community_notifications">Community notifications</string>
+    <string name="lbl_shopping_notifications">Shopping notifications</string>
+    <string name="lbl_goddess_information">Goddess information</string>
+    <string name="lbl_invite_friends">Invite friends</string>
+    <string name="lbl_about_us">About us</string>
+    <string name="lbl_contact_us">Contact us</string>
+    <string name="lbl_faq_">FAQ</string>
+
+    <!--<string name="lbl_how_to_use_app">How to use app?</string>-->
+    <string name="lbl_how_to_use_app">How to earn points?</string>
+    <string name="lbl_how_to_use_app_video">How to use this app: video</string>
+
+    <string name="lbl_join_our_community">Join our community</string>
+    <string name="lbl_cancel_account">Cancel account</string>
+    <!--[end] Setting-->
+
+    <!--[start] contact us-->
+    <string name="lbl_any_que">Any Question? Send us to message and we will get back to you shortly.</string>
+    <string name="lbl_title">Title</string>
+    <string name="lbl_enter_title">Enter title</string>
+    <string name="lbl_enter_message">Enter message</string>
+    <string name="lbl_enter_email">Enter email</string>
+    <string name="lbl_message">Message</string>
+    <!--[end] contact us-->
+
+    <!--[start] order list-->
+    <string name="lbl_order_list">Order list</string>
+    <string name="lbl_my_orders">My Orders</string>
+    <string name="lbl_my_plans">My Plans</string>
+    <string name="lbl_delivery_changes">Delivery changes</string>
+    <string name="lbl_items">4 items</string>
+    <string name="lbl_order">Order:</string>
+    <string name="lbl_free">Free</string>
+    <string name="lbl_by_item_again">Buy it again</string>
+    <string name="lbl_view_order_details">View order details</string>
+    <string name="lbl_tack_this_order">Track this order</string>
+    <string name="lbl_email_this_invoice">Email this invoice</string>
+    <!--[end] order list-->
+
+    <!--[start] filter screen-->
+    <string name="lbl_filter">Filter</string>
+    <string name="lbl_order_filter">Order Filter</string>
+    <string name="lbl_open_orders">Order Receiver</string>
+    <string name="lbl_delivery_orders">Delivery orders</string>
+    <string name="lbl_all_orders">All orders</string>
+    <string name="lbl_time_filter">Time Filter</string>
+    <string name="lbl_last_order">Last Order</string>
+    <string name="lbl_last30">Last 30 days</string>
+    <string name="lbl_2019">2019</string>
+    <string name="lbl_2018">2018</string>
+    <string name="lbl_apply">APPLY</string>
+    <!--[end] filter screen-->
+
+    <!--[start] order status-->
+    <string name="lbl_order_status">Order Status Of #</string>
+    <string name="lbl_order_received">Order Received</string>
+    <string name="lbl_preparing">Preparing</string>
+    <string name="lbl_ready">Ready</string>
+    <string name="lbl_dispatch">Dispatch</string>
+    <string name="lbl_delivered">Delivered !!!</string>
+    <!--[end] order status-->
+
+    <!--[start] my address & add address-->
+    <string name="lbl_my_address">My Addresses</string>
+    <string name="lbl_add_address">Add addresses</string>
+    <string name="lbl_use_may_current_location">use may current location</string>
+    <string name="old_home">Old Home</string>
+    <string name="pincode">PinCode*</string>
+    <string name="address_title">Address title</string>
+    <string name="enter_pincode">Enter pincode</string>
+    <string name="enter_title">Enter title</string>
+    <string name="house_no_building_name">House No.,Building name*</string>
+    <string name="road_name_area_colony">Road name, Area, Colony*</string>
+    <string name="enter_road_area_colony_">Enter Road, Area, Colony</string>
+    <string name="city">City*</string>
+    <string name="enter_city">Enter City</string>
+    <string name="state">State*</string>
+    <string name="enter_state">Enter state</string>
+    <string name="landmark_optional">Landmark(Optional)</string>
+    <string name="enter_building_name">Enter Building name</string>
+    <string name="enter_landmark">Enter landmark</string>
+    <string name="yay_order_successfully_delivered">yay! Order Successfully Delivered</string>
+    <string name="tab_to_auto_fill_the_address_fields">Tab to auto fill the address fields.</string>
+    <string name="save_amp_proceed"><![CDATA[Save & Proceed]]></string>
+    <string name="update_amp_proceed"><![CDATA[Update & Proceed]]></string>
+    <string name="blank_address_title">Please enter address title</string>
+    <string name="blank_pincode">Please enter pincode</string>
+    <string name="blank_house_no">Please enter house no</string>
+    <string name="blank_road_name">Please enter road name</string>
+    <string name="blank_city">Please enter city</string>
+    <string name="blank_state">Please enter state</string>
+    <string name="blank_country">Please enter country</string>
+    <!--[end] my address & add address-->
+
+    <!--[start] no data found screen-->
+    <string name="no_favorites_recipes_found">No Favorites Recipes Found!</string>
+    <string name="you_fav">Your favorite recipes is empty.\nGuess you didn\'t mark any recipes as favorites yet.</string>
+    <string name="lbl_view_recipes">View Recipes</string>
+    <string name="no_notification">No Notification</string>
+    <string name="all_notifications_received_will_be_saved_here">All notifications received \nwill be saved here.</string>
+    <string name="no_order_found">No order found!</string>
+    <string name="looks_like_you_haven_t_placed_any_order_yet">Looks like you haven\'t placed any order yet</string>
+    <!-- <string name="continue_shopping">Continue shopping</string>-->
+    <string name="looks_like_you_haven_t_added_anything_to_your_cart_yet">Looks like you haven\'t added anything to your cart yet.</string>
+    <string name="add_address">Add address</string>
+    <string name="your_cart_is_empty">Your Cart is Empty</string>
+    <string name="no_address">No Address</string>
+    <string name="there_is_no_address_at_the_moment">There is no address at the moment.</string>
+    <string name="no_opinions">No Opinions</string>
+    <string name="be_the_first_to_share_your_experience">Be the first to share your experience !!</string>
+    <!--[end] no data found screen-->
+
+    <!--[start] yoga point-->
+    <string name="maiden">Maiden</string>
+    <string name="goddess_shop"><![CDATA[Goddess shop]]></string>
+    <string name="lbl_how_to_earn">How to earn?</string>
+    <string name="lbl_your_points">Your points</string>
+    <string name="invite_your_friends_to_join_the_app">Invite your friends to join the app!</string>
+    <!--[end] yoga point-->
+
+
+    <!--[start] leader board screen-->
+    <string name="lbl_leader_boader">Leaderboard</string>
+    <!--[end] leader board screen-->
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="lbl_country">Country</string>
+    <string name="enter_country">Enter Country</string>
+    <string name="are_you_sure_you_want_to_cancel_account">Are you sure you want to cancel account?</string>
+    <string name="msg_video_not_available">Oppss..Video not available.</string>
+    <string name="download_error">Somthing went wrong.. Please try again !!</string>
+    <string name="download_success">Video downloaded successfully!!</string>
+</resources>

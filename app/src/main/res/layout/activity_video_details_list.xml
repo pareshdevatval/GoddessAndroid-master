@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="activity"
+            type="com.krystal.goddesslifestyle.ui.video_library.VideoDetailsListActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.video_library.VideoDetailsListActivity"
+        android:background="@color/pink">
+
+        <include android:id="@+id/toolbarLayout"
+            layout="@layout/app_toolbar"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/no_data_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone"
+            android:background="@color/pink">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTutorialImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                app:srcCompat="@drawable/no_video"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toTopOf="parent"
+                android:paddingTop="?android:attr/actionBarSize"
+                android:background="@color/pink"
+                app:layout_constraintBottom_toTopOf="@+id/wave"/>
+
+            <com.krystal.goddesslifestyle.utils.WaveView
+                android:id="@+id/wave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="180"
+                app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+                android:background="@color/white"/>
+
+            <LinearLayout
+                android:id="@+id/bottom_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/white"
+                android:padding="@dimen/_15sdp">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/no_video_found"
+                style="@style/medium_poppins_semi_bold"
+                android:textColor="@color/pink"
+                app:layout_constraintBottom_toTopOf="@+id/tv_desc"
+                android:layout_marginBottom="@dimen/_5sdp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_desc"
+                android:layout_width="@dimen/_160sdp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/no_videos_desc"
+                style="@style/medium_poppins_reg"
+                android:textColor="@color/black_text"
+                app:layout_constraintBottom_toTopOf="@+id/btn_go_back"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/btn_go_back"
+                android:layout_width="@dimen/_160sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Go Back"
+                style="@style/pink_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_gravity="center"
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins_medium"
+                android:onClick="@{(v)->activity.onClick(v)}"/>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

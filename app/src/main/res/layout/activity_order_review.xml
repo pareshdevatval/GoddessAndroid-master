@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.shop.CartActivity">
+
+        <include
+            android:id="@+id/toolbarLayout"
+            layout="@layout/app_toolbar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarLayout">
+
+            <include layout="@layout/yellow_and_white_bg" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_minus8sdp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/btn_place_order"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="@dimen/_5sdp"
+                    android:elevation="@dimen/_5sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_10sdp">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_total_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total_amount"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:textColor="@color/black_text"
+                        style="@style/reg_poppins_semi_bold"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_total_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$300"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:textColor="@color/black_text"
+                        style="@style/reg_poppins_semi_bold"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_delivery_charges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Delivery Charges"
+                        app:layout_constraintBottom_toTopOf="@+id/cb_redeem"
+                        android:textColor="@color/black_text"
+                        style="@style/reg_poppins_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:layout_constraintTop_toTopOf="@+id/tv_delivery_charges"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_delivery_charges"/>
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/cb_redeem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Use redeem points to this order"
+                        app:layout_constraintBottom_toTopOf="@+id/lbl_total_amount"
+                        android:textColor="@color/black_text"
+                        style="@style/reg_poppins_reg"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:button="@drawable/custom_checkbox"
+                        android:paddingLeft="@dimen/_10sdp"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_delivery_charges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FREE"
+                        app:layout_constraintBottom_toTopOf="@+id/cb_redeem"
+                        android:textColor="@color/yellow"
+                        style="@style/reg_poppins_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/lbl_subtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subtotal"
+                        app:layout_constraintBottom_toTopOf="@+id/lbl_delivery_charges"
+                        android:textColor="@color/black_text"
+                        style="@style/reg_poppins_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_subtotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$300"
+                        app:layout_constraintBottom_toTopOf="@+id/lbl_delivery_charges"
+                        android:textColor="@color/black_text"
+                        style="@style/reg_poppins_medium"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginBottom="@dimen/_5sdp"/>
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black_text"
+                        app:layout_constraintBottom_toTopOf="@id/lbl_subtotal"
+                        android:layout_marginBottom="@dimen/_10sdp"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintTop_toBottomOf="@+id/top_view"
+                        app:layout_constraintBottom_toTopOf="@+id/view"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        tools:listitem="@layout/list_row_cart"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/address_layout"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/lbl_delivery_to"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="@+id/tv_change"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_change"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="@string/delivery_to"
+                            style="@style/medium_poppins_semi_bold"
+                            android:textColor="@color/black_text"/>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_change"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:text="@string/change"
+                            style="@style/reg_poppins_medium"
+                            android:textColor="@color/yellow"
+                            android:paddingTop="@dimen/_4sdp"
+                            android:paddingStart="@dimen/_4sdp"
+                            android:paddingBottom="@dimen/_4sdp"
+                            android:paddingLeft="@dimen/_4sdp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="Lorem Ipsum Address text"
+                            style="@style/reg_poppins_medium"
+                            android:textColor="@color/black_text"
+                            app:layout_constraintTop_toBottomOf="@+id/lbl_delivery_to"
+                            android:layout_marginTop="@dimen/_2sdp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/top_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black_text"
+                        app:layout_constraintTop_toBottomOf="@+id/address_layout"
+                        android:layout_marginTop="@dimen/_5sdp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_place_order"
+                    style="@style/yellow_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/ic_checkout_arrow"
+                    android:gravity="start|center"
+                    android:paddingLeft="@dimen/_8ssp"
+                    android:paddingRight="@dimen/_8ssp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:text="@string/place_order"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
