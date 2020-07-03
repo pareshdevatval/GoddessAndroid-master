@@ -26,7 +26,7 @@ object AppConstants {
 
     const val REQUEST_CODE_ORDER = 5
 
-    const val DISPLAY_VERSION = "0.4.5"
+    const val DISPLAY_VERSION = "0.4.6"
     const val EXTRA_FROM = "extraFrom"
     const val FROM_CART = "fromCart"
 

@@ -6,7 +6,6 @@ import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +18,7 @@ import com.krystal.goddesslifestyle.adapter.CalenderDaysGridAdapter
 import com.krystal.goddesslifestyle.data.model.CalenderDay
 import com.krystal.goddesslifestyle.databinding.CalenderViewLayoutBinding
 import com.krystal.goddesslifestyle.utils.AppConstants
+import kotlin.math.floor
 
 
 /**
@@ -107,8 +107,9 @@ class GoddessCalenderView : LinearLayout {
         /*We have taken a variable for the rowNo and will set it as a tag to the date
         * So, when a date clicks, We can detect which row is selected*/
         var rowNo = 0
-        var cellCount = 0
-        var childCount = 0
+        var totalRowCount = 0
+        var totalChildCount = 0
+        var currentChildNo = 0
         for (i in 0 until list.size) {
 
             /*One row will contain 1 week data and hence 7 days
@@ -118,17 +119,19 @@ class GoddessCalenderView : LinearLayout {
 
                 /*Dynamic linear layout for the week row*/
                 rowLayout = LinearLayout(context)
-                childCount = 0
+                currentChildNo = 0
                 //val layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
                 if (list.size > 35) {
                     val layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, height / 6)
                     rowLayout?.layoutParams = layoutParams
-                    cellCount = 6
+                    totalChildCount = 6
                 } else {
                     val layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, height / 5)
                     rowLayout?.layoutParams = layoutParams
-                    cellCount = 5
+                    totalChildCount = 5
                 }
+                totalRowCount =
+                    floor((list.size / AppConstants.MAX_DAYS_IN_WEEK).toDouble()).toInt()
                 //layoutParams.weight = 1F
                 // orientation set to HORIZONTAL
                 rowLayout?.orientation = HORIZONTAL
@@ -162,36 +165,35 @@ class GoddessCalenderView : LinearLayout {
                 tvDate.tag = rowNo
                 ll_root.setBackgroundResource(R.drawable.white_outline)
 
-               /* if (childCount == 0) {
-                    Log.e("Row layout First Cell", "display")
-                    ll_root.background = (getRotateDrawable(
-                        ContextCompat.getDrawable(
-                            context,
-                            R.drawable.three_sided_stroke
-                        )!!, 0f
-                    ))
-                } else if (childCount == 1) {
-                    Log.e("Row layout Center Cell", "display")
-                      ll_root.background = (getRotateDrawable(
-                          ContextCompat.getDrawable(
-                              context,
-                              R.drawable.three_sided_stroke
-                          )!!, 90f
-                      ))
-                    //ll_root.setBackgroundResource(0)
-                } else {
-                    Log.e("Row layout Last Cell", "display")
-                    ll_root.background = (getRotateDrawable(
-                        ContextCompat.getDrawable(
-                            context,
-                            R.drawable.three_sided_stroke
-                        )!!, 180f
-                    ))*/
-                    //ll_root.setBackgroundResource(0)
-                }
-                childCount++;
+                /* if (rowNo < totalRowCount) {
+                     if (rowNo == 1) {
+                         if (currentChildNo < totalChildCount) {
+                             ll_root.setBackgroundResource(R.drawable.no_right_bottom_two_sided_stroke)
+                         } else {
+                             ll_root.setBackgroundResource(R.drawable.no_bottom_three_sided_stroke)
+                         }
+                     } else {
+                         if (currentChildNo < 6) {
+                             ll_root.setBackgroundResource(R.drawable.no_right_bottom_two_sided_stroke)
+                         } else {
+                             ll_root.setBackgroundResource(R.drawable.no_bottom_three_sided_stroke)
+                         }
+                     }
+                 } else {
+                     if (list[i + 1].date != 0) {
+                         ll_root.setBackgroundResource(R.drawable.no_right_three_sided_stroke)
+                     } else {
+                         ll_root.setBackgroundResource(R.drawable.white_outline)
+                     }
+                 }*/
+
+                currentChildNo++;
             } else {
+                /* if (rowNo == totalRowCount) {
+                     ll_root.setBackgroundResource(R.drawable.onlu_top_sided_stroke)
+                 } else {*/
                 ll_root.setBackgroundResource(0)
+                //}
             }
 
             cellView.setOnClickListener { tvDate.performClick() }

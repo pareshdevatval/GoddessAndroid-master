@@ -7,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/three_sided_stroke">
+        android:background="@drawable/no_right_bottom_two_sided_stroke">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvDate"

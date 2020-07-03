@@ -274,7 +274,7 @@ class SettingActivity : BaseActivity<SettingModel>(), View.OnClickListener {
     ) {
         view?.let {
             view.tvName.text = name
-            view.iv.setBackgroundResource(images)
+            view.iv.setImageResource(images)
 
         }
 

@@ -204,7 +204,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         val currentMonth = calender.get(Calendar.MONTH) + 1
         val currentYear = calender.get(Calendar.YEAR)
 
-        appDatabase.themeMasterDao().getThemeMaster(currentYear, currentMonth)?.let {
+        appDatabase.themeMasterDao().getThemeMaster(currentYear, currentMonth )?.let {
             return true
         }
         return false

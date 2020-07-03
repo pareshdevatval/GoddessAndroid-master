@@ -20,8 +20,8 @@ android {
         applicationId "com.krystal.goddesslifestyle"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 15
-        versionName "1.5"
+        versionCode 17
+        versionName "1.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
@@ -38,12 +38,12 @@ android {
         }
         release {
             signingConfig signingConfigs.myConfig
-            debuggable true
+            //debuggable true
             //minifyEnabled true
             //shrinkResources true
             //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-           // buildConfigField("String", "BASE_URL", "\"https://goddesslifeapp.com/admin/api/v1/\"")
-            buildConfigField("String", "BASE_URL", "\"http://goddess.reviewprototypes.com/api/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"https://goddesslifeapp.com/admin/api/v1/\"")
+            //buildConfigField("String", "BASE_URL", "\"http://goddess.reviewprototypes.com/api/v1/\"")
             buildConfigField("String", "IMAGE_BASE_URL", "\"https://goddesslifeapp.com/admin/public/image.php?url=\"")
             buildConfigField("String", "VIDEO_BASE_URL", "\"https://goddesslifeapp.com/admin/public/uploads/\"")
         }

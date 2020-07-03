@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.krystal.goddesslifestyle.HowToUseAppActivity
 import com.krystal.goddesslifestyle.R
 import com.krystal.goddesslifestyle.base.BaseFragment
 import com.krystal.goddesslifestyle.base.BaseResponse
@@ -161,13 +162,13 @@ class TodaysPracticePagerFagment : BaseFragment<TodaysPracticeViewModel>(), View
             binding.ivPracticeEquipment.post {
                 context?.let {
                     if (equipment != null) {
-                      /*  Log.e(
-                            "EQUIPMENT", AppUtils.generateImageUrl(
-                                equipment.equipmentImage,
-                                binding.ivPracticeEquipment.width,
-                                binding.ivPracticeEquipment.height
-                            )
-                        )*/
+                        /*  Log.e(
+                              "EQUIPMENT", AppUtils.generateImageUrl(
+                                  equipment.equipmentImage,
+                                  binding.ivPracticeEquipment.width,
+                                  binding.ivPracticeEquipment.height
+                              )
+                          )*/
                         AppUtils.loadImageThroughGlide(
                             it, binding.ivPracticeEquipment,
                             AppUtils.generateImageUrl(

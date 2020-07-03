@@ -30,7 +30,7 @@ import javax.inject.Inject
 /**
  * Created by Bhargav Thanki on 24 February,2020.
  */
-class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClickListener {
+class TodaysMealPagerFragment : BaseFragment<TodaysMealViewModel>(), View.OnClickListener {
 
     companion object {
         /*A static method to invoke this fragment class
@@ -47,11 +47,12 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
     private lateinit var binding: PagerFragmentTodayMealBinding
 
     private val recipesList: ArrayList<Recipe> = ArrayList()
-    private lateinit var todayRecipeIds : List<Int>
+    private lateinit var todayRecipeIds: List<Int>
 
     /*Database */
     @Inject
     lateinit var appDatabase: AppDatabase
+
     @Inject
     lateinit var prefs: Prefs
 
@@ -68,7 +69,11 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
         val requestsComponent: NetworkLocalComponent = DaggerNetworkLocalComponent
@@ -94,24 +99,33 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
 
     private fun setUpViewPager() {
         val imagesList: ArrayList<String> = ArrayList()
-        for(recipe in recipesList) {
-            imagesList.add(appDatabase.recipeImageDao().getRecipeImages(recipe.recipeId)[0])
+        for (recipe in recipesList) {
+            imagesList.add(
+                if (appDatabase.recipeImageDao()
+                        .getRecipeImages(recipe.recipeId).isNotEmpty()
+                ) appDatabase.recipeImageDao().getRecipeImages(recipe.recipeId)[0]
+                else ""
+            )
         }
         val adapter = ViewpagerImagesAdapter(context!!, imagesList)
         binding.viewPager.adapter = adapter
         binding.vpIndicator.setViewPager(binding.viewPager)
 
-        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
 
             }
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
 
             }
 
             override fun onPageSelected(position: Int) {
-                if(recipesList.isNotEmpty()) {
+                if (recipesList.isNotEmpty()) {
                     setUpRecipeData(recipesList[position], position)
                 }
             }
@@ -127,14 +141,14 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
         // we can get today's recipe id from currently selected calenderDay
         todayRecipeIds = appDatabase.todaysRecipeDao().getTodayRecipeId(calenderDayId)
         /*And from today's recipe id, We can get the object of Recipe*/
-        for(id in todayRecipeIds) {
+        for (id in todayRecipeIds) {
             val recipe = appDatabase.recipeDao().getRecipe(id)
             recipe?.let {
                 recipesList.add(recipe)
                 setUpViewPager()
             }
         }
-        if(recipesList.isNotEmpty()) {
+        if (recipesList.isNotEmpty()) {
             setUpRecipeData(recipesList[0], 0)
         }
     }
@@ -145,12 +159,13 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
         binding.tvMealName.text = recipe.recipeTitle
 
         var mealType = ""
-        when(position) {
+        when (position) {
             0 -> mealType = getString(R.string.breakfast)
             1 -> mealType = getString(R.string.lunch)
             2 -> mealType = getString(R.string.dinner)
         }
-        binding.tvTodaysMealPlan.text = String.format(getString(R.string.meal_type), mealType, recipe.recipeTitle)
+        binding.tvTodaysMealPlan.text =
+            String.format(getString(R.string.meal_type), mealType, recipe.recipeTitle)
     }
 
     override fun onClick(v: View?) {
@@ -168,12 +183,16 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
                             val vpIndex = binding.viewPager.currentItem
                             val recipe = recipesList[vpIndex]
 
-                            val imageUrl = appDatabase.recipeImageDao().getRecipeImages(recipe.recipeId)[0]
+                            val imageUrl =
+                                appDatabase.recipeImageDao().getRecipeImages(recipe.recipeId)[0]
 
-                            if(imageUrl.isNotEmpty()) {
+                            if (imageUrl.isNotEmpty()) {
                                 AppUtils.shareContent(it, AppUtils.generateImageUrl(imageUrl))
                             } else {
-                                AppUtils.shareContent(it, "Share from Goddess LifeStyle Android App")
+                                AppUtils.shareContent(
+                                    it,
+                                    "Share from Goddess LifeStyle Android App"
+                                )
                             }
                             callShareApi()
                         }
@@ -189,8 +208,11 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
                         //AppUtils.showToast(it, "Under Development")
                         val recipe = recipesList[binding.viewPager.currentItem]
                         startActivity(
-                            RecipeDetailsActivity.newInstance(context!!,recipe.recipeTitle,
-                                recipe.recipeId.toString()))
+                            RecipeDetailsActivity.newInstance(
+                                context!!, recipe.recipeTitle,
+                                recipe.recipeId.toString()
+                            )
+                        )
                         AppUtils.startFromRightToLeft(context!!)
                     }
                 }
@@ -200,14 +222,15 @@ class TodaysMealPagerFragment: BaseFragment<TodaysMealViewModel>(), View.OnClick
 
     private fun callShareApi() {
         val params = HashMap<String, String>()
-        params[ApiContants.ACTIVITY_ID] = todayRecipeIds.get(binding.viewPager.currentItem).toString()
+        params[ApiContants.ACTIVITY_ID] =
+            todayRecipeIds.get(binding.viewPager.currentItem).toString()
         params[ApiContants.EARNED_POINTS] = ApiContants.SHARE_RECIPE_POINTS.toString()
         params[ApiContants.TYPE] = ApiContants.SHARE_TYPE_RECIPE
         viewModel.callShareApi(params)
     }
 
     private val shareApiResponseObserver = Observer<BaseResponse> {
-        if(it.status) {
+        if (it.status) {
             //AppUtils.showToast(context!!, it.message)
         }
     }

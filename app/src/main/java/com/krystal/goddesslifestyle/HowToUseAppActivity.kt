@@ -89,6 +89,7 @@ class HowToUseAppActivity : BaseActivity<BaseViewModel>(), Player.EventListener,
         player.addListener(this)
         binding.videoView.useController = true
         binding.videoView.player = player
+        //binding.controls.player = player
 
         val uri =
             Uri.parse("http://goddess.reviewprototypes.com/public/uploads/intro/app-welcome.mp4")

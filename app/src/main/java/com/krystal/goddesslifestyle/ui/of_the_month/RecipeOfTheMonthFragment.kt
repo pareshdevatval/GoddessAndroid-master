@@ -53,7 +53,11 @@ class RecipeOfTheMonthFragment : BaseFragment<BaseViewModel>(), View.OnClickList
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val requestsComponent: NetworkLocalComponent = DaggerNetworkLocalComponent
             .builder()
             .networkComponent(getNetworkComponent())
@@ -88,7 +92,11 @@ class RecipeOfTheMonthFragment : BaseFragment<BaseViewModel>(), View.OnClickList
                                 image?.let { img ->
                                     AppUtils.loadImageThroughGlide(
                                         it, binding.ivRecipe,
-                                        AppUtils.generateImageUrl(img, binding.ivRecipe.width, binding.ivRecipe.height),
+                                        AppUtils.generateImageUrl(
+                                            img,
+                                            binding.ivRecipe.width,
+                                            binding.ivRecipe.height
+                                        ),
                                         R.drawable.ic_placeholder_square
                                     )
                                 }
@@ -138,7 +146,7 @@ class RecipeOfTheMonthFragment : BaseFragment<BaseViewModel>(), View.OnClickList
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
             R.id.btnViewRecipe -> {
                 //AppUtils.startSubscriptionActivity(context)
                 context?.let {
@@ -146,10 +154,15 @@ class RecipeOfTheMonthFragment : BaseFragment<BaseViewModel>(), View.OnClickList
                     if (subscriptionStatus == AppConstants.NO_SUBSCRIPTION) {
                         AppUtils.startSubscriptionActivity(context)
                     } else {
-                        startActivity(
-                            RecipeDetailsActivity.newInstance(context!!,currentRecipe?.recipeTitle!!,
-                                currentRecipe?.recipeId.toString()))
-                        AppUtils.startFromRightToLeft(context!!)
+                        if (currentRecipe != null && currentRecipe!!.recipeTitle != null) {
+                            startActivity(
+                                RecipeDetailsActivity.newInstance(
+                                    context!!, currentRecipe?.recipeTitle!!,
+                                    currentRecipe?.recipeId.toString()
+                                )
+                            )
+                            AppUtils.startFromRightToLeft(context!!)
+                        }
                     }
                 }
             }
