@@ -221,6 +221,16 @@ class MyAddressListActivity : BaseActivity<MyAddressListModel>(),
         }
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 501) {
+          if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+              addAddress()
+          }
+        }
+    }
+
 
     fun addAddress() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

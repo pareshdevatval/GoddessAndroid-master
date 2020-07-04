@@ -87,9 +87,10 @@ class PlayVideoActivity : BaseActivity<PlayVideoViewModel>(),
         )
         player.addListener(this)
         binding.videoView.useController=true
+        binding.videoView.overlayFrameLayout
         binding.videoView.player = player
         //binding.videoView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
-        binding.videoView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
+        binding.videoView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIXED_WIDTH
         player.videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
         val uri =
             Uri.parse(fileName)

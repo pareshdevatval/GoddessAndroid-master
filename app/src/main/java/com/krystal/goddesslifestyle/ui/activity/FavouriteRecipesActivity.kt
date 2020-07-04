@@ -33,6 +33,7 @@ import com.krystal.goddesslifestyle.ui.of_the_month.OfTheMonthActivity
 import com.krystal.goddesslifestyle.utils.AppUtils
 import com.krystal.goddesslifestyle.utils.GoddessAnimations
 import com.krystal.goddesslifestyle.viewmodels.FavouriteRecipesModel
+import okhttp3.internal.notify
 import javax.inject.Inject
 
 class FavouriteRecipesActivity : BaseActivity<FavouriteRecipesModel>(),
@@ -292,10 +293,15 @@ class FavouriteRecipesActivity : BaseActivity<FavouriteRecipesModel>(),
     }
     /*observe recipes favourite data*/
     private val favouriteRecipesObsrerve = Observer<LikeUnlikeResponse> {
-        if (it.status) {
-            val data = likedata
-            data!!.recipeIsLiked = it.favourite
-            (binding.rvFavRec.adapter as FavouritesRecipesAdapter).notifyItemChanged(likeSelectedPositon, data)
+        if((binding.rvFavRec.adapter as FavouritesRecipesAdapter).items.size == 1){
+            CURRENT_PAGE = 1
+            (binding.rvFavRec.adapter as FavouritesRecipesAdapter).clear()
+            mViewModel.callRecipeListdApi()
+        } else if (it.status && it.favourite == 2) {
+            (binding.rvFavRec.adapter as FavouritesRecipesAdapter).items.removeAt(likeSelectedPositon)
+            (binding.rvFavRec.adapter as FavouritesRecipesAdapter).notifyItemRemoved(likeSelectedPositon)
+            (binding.rvFavRec.adapter as FavouritesRecipesAdapter).notifyItemRangeChanged(likeSelectedPositon,
+                (binding.rvFavRec.adapter as FavouritesRecipesAdapter).items.size)
         }
     }
 }

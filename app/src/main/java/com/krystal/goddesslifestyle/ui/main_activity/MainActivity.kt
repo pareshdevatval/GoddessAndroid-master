@@ -137,6 +137,11 @@ class MainActivity : BaseActivity<BaseViewModel>() {
         binding.mainLayout.setBackgroundColor(color)
     }
 
+    /*Set background of the activity*/
+    public fun setActivityAnimatedBackground() {
+        binding.mainLayout.background = resources.getDrawable(R.drawable.community_bg, null)
+    }
+
     /*To get the current background color of an activity*/
     fun getActivityBgColor(): Int {
         var color = Color.TRANSPARENT

@@ -131,7 +131,7 @@ class GoddessCommunityOpinionsFragment : BaseFragment<GoddessCommunityOpinionsVi
         activity?.let {
             filePickUtils = FilePickUtils(this, mOnFileChoose)
         }
-        (activity as MainActivity).changeBgColor(R.color.violet)
+        (activity as MainActivity).setActivityAnimatedBackground()
         initToolbar()
         setAdapter()
         setOpinionImageAdapter()
@@ -169,7 +169,7 @@ class GoddessCommunityOpinionsFragment : BaseFragment<GoddessCommunityOpinionsVi
 
     private fun initToolbar() {
         setToolbarTitle(R.string.title_goddess_community)
-        setToolbarColor(R.color.violet)
+        setToolbarColor(android.R.color.transparent)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = activity!!.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
@@ -382,6 +382,8 @@ class GoddessCommunityOpinionsFragment : BaseFragment<GoddessCommunityOpinionsVi
 
         AppUtils.logE("" + requestCode)
         if (requestCode == AppConstants.OPEN_COMMENT && resultCode == Activity.RESULT_OK) {
+            CURRENT_PAGE = 1
+            adapter.clear()
             mViewModel.callGetGoddessCommunityOpinions()
         } else if (requestCode == PICK_VIDEO_GALLERY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             intent?.let {

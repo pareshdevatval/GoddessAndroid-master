@@ -72,9 +72,9 @@ class GoddessCommunityFragment : BaseFragment<GoddessCommunityViewModel>() {
     }
 
     private fun init(){
-        (activity as MainActivity).changeBgColor(R.color.violet)
+        (activity as MainActivity).setActivityAnimatedBackground()
         setToolbarTitle(R.string.title_goddess_community)
-        setToolbarColor(R.color.violet)
+        setToolbarColor(android.R.color.transparent)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window = activity!!.window
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)

@@ -4,12 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
-import com.krystal.goddesslifestyle.R
 import com.krystal.goddesslifestyle.base.BaseBindingAdapter
 import com.krystal.goddesslifestyle.base.BaseBindingViewHolder
-import com.krystal.goddesslifestyle.data.model.HowToEarnModel
 import com.krystal.goddesslifestyle.data.response.YourPointsResponse
-import com.krystal.goddesslifestyle.databinding.ItemHowToEarnBinding
 import com.krystal.goddesslifestyle.databinding.ItemYourPointBinding
 import com.krystal.goddesslifestyle.databinding.LoadMoreProgressBinding
 import com.krystal.goddesslifestyle.utils.AppUtils
@@ -41,7 +38,7 @@ class YourPointAdapter : BaseBindingAdapter<YourPointsResponse.Result?>() {
                 val item = items[position]
                 item?.let {
 
-                    binding.tvDesc.text=AppUtils.getYourPointText(item.uaType)
+                    binding.tvDesc.text=AppUtils.getYourPointText(item.uaType, item.uaEarnedPoints)
                     binding.tvPoint.text="+"+item.uaEarnedPoints
                     binding.iv.setImageDrawable(ContextCompat.getDrawable(binding.root.context,
                         AppUtils.getYourPointImages(item.uaType)))

@@ -14,7 +14,6 @@ import android.graphics.drawable.Drawable
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
-import android.os.Environment
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.method.LinkMovementMethod
@@ -47,7 +46,6 @@ import com.krystal.goddesslifestyle.data.Prefs
 import com.krystal.goddesslifestyle.data.db.AppDatabase
 import com.krystal.goddesslifestyle.data.model.Benefit
 import com.krystal.goddesslifestyle.data.response.AppSettingsResponse
-import com.krystal.goddesslifestyle.data.response.DeliveryCharge
 import com.krystal.goddesslifestyle.data.response.UserSubscription
 import com.krystal.goddesslifestyle.ui.activity.LoginActivity
 import com.krystal.goddesslifestyle.ui.subscription.SubscriptionActivity
@@ -850,12 +848,12 @@ object AppUtils {
         }
     }
 
-    fun getYourPointText(ua_type: String): String {
+    fun getYourPointText(ua_type: String, uaEarnedPoints: Int): String {
         var text = ""
         when (ua_type) {
             "completing_daily_practice" -> {
 
-                text = "You have earned 15 points by completing daily practice"
+                text = "You have earned $uaEarnedPoints points by completing daily practice"
                 return text
             }
             "shared_practice" -> {

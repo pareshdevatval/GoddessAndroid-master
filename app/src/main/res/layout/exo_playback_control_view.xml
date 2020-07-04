@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center_horizontal"
         android:layout_centerInParent="true">
 
         <!--android:id="@id/exo_prev"-->
@@ -26,14 +27,19 @@
             android:id="@+id/playPauseFrame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1">
 
             <ImageButton
                 android:id="@id/exo_play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 style="@style/ExoMediaButton.Play" />
 
             <ImageButton
                 android:id="@id/exo_pause"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 style="@style/ExoMediaButton.Pause" />
 
         </FrameLayout>

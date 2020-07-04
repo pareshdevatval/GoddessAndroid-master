@@ -32,7 +32,7 @@
             android:layout_marginRight="@dimen/_25sdp"
             app:layout_constraintBottom_toBottomOf="@id/guideline"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/login_icon" />
+            app:srcCompat="@drawable/img_lotus" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSignIn"

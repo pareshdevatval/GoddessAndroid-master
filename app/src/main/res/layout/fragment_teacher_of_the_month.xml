@@ -7,6 +7,7 @@
         <variable
             name="teacher"
             type="com.krystal.goddesslifestyle.data.response.TeacherOfTheMonth" />
+        <import type="android.text.Html" />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -60,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:text="@{teacher.teacherDescription}"
+                android:text="@{Html.fromHtml(teacher.teacherDescription)}"
                 android:textColor="@color/black_text" />
 
         </LinearLayout>

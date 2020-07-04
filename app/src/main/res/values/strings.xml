@@ -189,7 +189,7 @@
     <string name="details">Details</string>
     <string name="ingredients">Ingredients</string>
 
-    <string name="how_to_cook">How to cook</string>
+    <string name="how_to_cook">instructions</string>
     <string name="serve">\u0020Serving</string>
     <string name="no_recipe_found">No Recipe Found!</string>
     <string name="there_is_no_recipe_at_the_moment">There is no recipe at the moment.</string>
@@ -262,11 +262,11 @@
     <string name="select_five">You have select only 5 Images or Video</string>
 
     <!--[start]my profile-->
-    <string name="lbl_my_profile">My profile</string>
-    <string name="lbl_favourites_recipes">Favourites recipes</string>
-    <string name="lbl_my_order">My orders</string>
+    <string name="lbl_my_profile">My Profile</string>
+    <string name="lbl_favourites_recipes">Favourites Recipes</string>
+    <string name="lbl_my_order">My Orders</string>
     <string name="lbl_my_addresses">My Addresses</string>
-    <string name="lbl_changes_password">Change password</string>
+    <string name="lbl_changes_password">Change Password</string>
     <string name="lbl_invite">Invite</string>
     <string name="lbl_logout">Logout</string>
     <string name="lbl_invite_earn">Invite and earn</string>
@@ -310,7 +310,7 @@
     <string name="lbl_faq_">FAQ</string>
 
     <!--<string name="lbl_how_to_use_app">How to use app?</string>-->
-    <string name="lbl_how_to_use_app">How to earn points?</string>
+    <string name="lbl_how_to_use_app">How to earn points</string>
     <string name="lbl_how_to_use_app_video">How to use this app: video</string>
 
     <string name="lbl_join_our_community">Join our community</string>

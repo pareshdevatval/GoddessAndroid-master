@@ -37,7 +37,7 @@ class BreakfastViewModel(application: Application) : BaseViewModel(application) 
         if (AppUtils.hasInternet(getApplication())) {
             val params: HashMap<String, String?> = HashMap()
             params[ApiParam.KEY_PAGE] = pageNo.toString()
-            params[ApiParam.KEY_LIMIT] = "4"
+            params[ApiParam.KEY_LIMIT] = "10"
             params[ApiParam.KEY_RECIPE_TYPE] = ApiContants.RECIPE_TYPE_BREAKFAST
             if (searchValue.isNotEmpty()){
                 params[ApiParam.KEY_SEARCH_TEXT] = searchValue

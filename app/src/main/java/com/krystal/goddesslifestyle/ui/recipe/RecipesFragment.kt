@@ -19,6 +19,7 @@ import com.krystal.goddesslifestyle.base.BaseFragment
 import com.krystal.goddesslifestyle.databinding.FragmentRecipesBinding
 import com.krystal.goddesslifestyle.di.component.DaggerNetworkLocalComponent
 import com.krystal.goddesslifestyle.di.component.NetworkLocalComponent
+import com.krystal.goddesslifestyle.ui.activity.WebViewActivity
 import com.krystal.goddesslifestyle.ui.main_activity.MainActivity
 import com.krystal.goddesslifestyle.ui.recipe.BreakfastFragment
 import com.krystal.goddesslifestyle.ui.recipe.DinnerFragment
@@ -287,7 +288,13 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
             if (subscriptionStatus == AppConstants.NO_SUBSCRIPTION) {
                 AppUtils.startSubscriptionActivity(context)
             } else {
-                context!!.startActivity(HowToAddRecipeActivity.newInstance(context!!))
+                startActivity(
+                    WebViewActivity.newInstance(
+                        context!!,
+                        getString(R.string.lbl_privacy_policy),
+                        AppConstants.PRIVACY_URL
+                    )
+                )
                 AppUtils.startFromRightToLeft(context!!)
             }
         }
