@@ -291,8 +291,8 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
                 startActivity(
                     WebViewActivity.newInstance(
                         context!!,
-                        getString(R.string.lbl_privacy_policy),
-                        AppConstants.PRIVACY_URL
+                        "Add Recipe",
+                        AppConstants.DEMO_GOOGLE_URL
                     )
                 )
                 AppUtils.startFromRightToLeft(context!!)

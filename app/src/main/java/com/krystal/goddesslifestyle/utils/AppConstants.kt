@@ -54,6 +54,7 @@ object AppConstants {
     const val PRIVACY_URL = "http://goddess.reviewprototypes.com/privacy"
     const val INSTAGRAM_URL = "https://www.instagram.com/krystalaranyani/"
     const val FB_URL = "https://www.facebook.com/krystalaranyani"
+    const val DEMO_GOOGLE_URL = "https://www.google.com/"
 
     const val DB_NAME = "goddess.db"
     const val DEFAULT_DATE_FORMAT: String = "dd/MM/yyyy"

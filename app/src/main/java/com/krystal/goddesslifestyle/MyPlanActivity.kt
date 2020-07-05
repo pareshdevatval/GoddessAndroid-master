@@ -123,6 +123,10 @@ class MyPlanActivity : BaseActivity<MyPlansViewModel>() {
                 onBackPressed()
             }
         })
+
+        binding.btnUpdatePlan.setOnClickListener {
+            AppUtils.startSubscriptionActivity(this)
+        }
     }
 
     private fun setBenefits(benefits: ArrayList<Benefit>) {
