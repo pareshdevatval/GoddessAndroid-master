@@ -18,6 +18,7 @@ import com.krystal.goddesslifestyle.adapter.CalenderDaysGridAdapter
 import com.krystal.goddesslifestyle.data.model.CalenderDay
 import com.krystal.goddesslifestyle.databinding.CalenderViewLayoutBinding
 import com.krystal.goddesslifestyle.utils.AppConstants
+import com.krystal.goddesslifestyle.utils.AppUtils
 import kotlin.math.floor
 
 
@@ -135,6 +136,7 @@ class GoddessCalenderView : LinearLayout {
                 //layoutParams.weight = 1F
                 // orientation set to HORIZONTAL
                 rowLayout?.orientation = HORIZONTAL
+                rowLayout!!.weightSum = 7f
                 // adding row to the main LL
                 binding.llCalender.addView(rowLayout)
             }
@@ -187,7 +189,7 @@ class GoddessCalenderView : LinearLayout {
                      }
                  }*/
 
-                currentChildNo++;
+                currentChildNo++
             } else {
                 /* if (rowNo == totalRowCount) {
                      ll_root.setBackgroundResource(R.drawable.onlu_top_sided_stroke)
@@ -236,7 +238,10 @@ class GoddessCalenderView : LinearLayout {
                 }
             }
 
-            val cellLayoutParams = LayoutParams(0, LayoutParams.MATCH_PARENT)
+            val cellLayoutParams =
+                LayoutParams(
+                    0, LayoutParams.MATCH_PARENT
+                )
             // setting weight to 1 for every grid cell
             cellLayoutParams.weight = 1f
             cellView.layoutParams = cellLayoutParams

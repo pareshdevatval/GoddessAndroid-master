@@ -5,14 +5,14 @@ apply plugin: 'kotlin-kapt'
 /*apply plugin: 'io.fabric'*/
 
 android {
-   /* signingConfigs {
+    signingConfigs {
         myConfig {
             storeFile file('E:\\Imd\\GoddessAndroid-master\\goddess_keystore.jks')
             storePassword '12345678'
             keyPassword '12345678'
             keyAlias 'goddess'
         }
-    }*/
+    }
 
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -20,18 +20,18 @@ android {
         applicationId "com.krystal.goddesslifestyle"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 17
-        versionName "1.7"
+        versionCode 19
+        versionName "1.9"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
-//        signingConfig signingConfigs.myConfig
+        signingConfig signingConfigs.myConfig
         // ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
     }
     /*[START] Various buildTypes*/
     buildTypes {
         debug {
-//             signingConfig signingConfigs.debug
+            signingConfig signingConfigs.debug
 //            buildConfigField("String", "BASE_URL", "\"http://goddess.reviewprototypes.com/api/v1/\"")
 //            buildConfigField("String", "IMAGE_BASE_URL", "\"http://goddess.reviewprototypes.com/public/image.php?url=\"")
 //            buildConfigField("String", "VIDEO_BASE_URL", "\"http://goddess.reviewprototypes.com/public/uploads/\"")
@@ -40,7 +40,7 @@ android {
             buildConfigField("String", "VIDEO_BASE_URL", "\"https://goddesslifeapp.com/admin/public/uploads/\"")
         }
         release {
-//            signingConfig signingConfigs.myConfig
+            signingConfig signingConfigs.myConfig
             //debuggable true
             //minifyEnabled true
             //shrinkResources true
