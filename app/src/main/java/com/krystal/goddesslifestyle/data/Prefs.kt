@@ -105,4 +105,7 @@ class Prefs(context: Context) {
         set(settings) = sharedPreferences!!.edit().putString(SETTINGS, Gson().toJson(settings)).apply()
 
 
+    var currentMonth: Int
+        set(value) = sharedPreferences!!.edit().putInt("currentMonth", value).apply()
+        get() = sharedPreferences!!.getInt("currentMonth", 0)
 }

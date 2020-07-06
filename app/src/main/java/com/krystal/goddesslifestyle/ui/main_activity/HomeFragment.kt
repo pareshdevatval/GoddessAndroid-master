@@ -3,8 +3,6 @@ package com.krystal.goddesslifestyle.ui.main_activity
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -14,7 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -170,9 +167,10 @@ class HomeFragment : BaseFragment<HomeViewModel>(), GoddessCalenderView.Calender
         * Otherwise call an API & store the data in database*/
 
 
-        if (viewModel.isDataLocallyAvailable()) {
+        if (viewModel.isDataLocallyAvailable() && prefs.currentMonth == viewModel.getMonthNumber()) {
             Handler().postDelayed(Runnable { showCalenderData() }, 500)
         } else {
+            appDatabase.calenderDataDao().clearData()
             viewModel.getCalenderDataFromApi()
         }
 
@@ -297,6 +295,7 @@ class HomeFragment : BaseFragment<HomeViewModel>(), GoddessCalenderView.Calender
     private fun initCalender(theme: Theme) {
         // setting current month name
         binding.tvMonthName.text = viewModel.getCurrentMonthName()
+        prefs.currentMonth = viewModel.getMonthNumber()
         // setting up an actual calender
 
         context?.let {

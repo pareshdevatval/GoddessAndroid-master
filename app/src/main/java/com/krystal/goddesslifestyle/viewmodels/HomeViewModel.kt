@@ -53,6 +53,11 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         return sdf.format(calender.time)
     }
 
+    fun getMonthNumber() : Int {
+        val calender = Calendar.getInstance()
+        return calender.get(Calendar.MONTH)
+    }
+
     /*getting current month days*/
     fun getCurrentMonthCalender(theme: Theme): ArrayList<CalenderDay> {
         val calender = Calendar.getInstance()
@@ -61,9 +66,16 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         /*Adding all the dates in an arraylist*/
         val monthDates: ArrayList<CalenderDay> = ArrayList()
         val monthDateLabels: ArrayList<String> = getCalenderDayNames(theme.themeId)
+        val monthDateNo: ArrayList<Int> = getCalenderDayNo(theme.themeId)
         try {
+            var x = 1
             for (i in 1..daysInMonth) {
-                monthDates.add(CalenderDay(i, monthDateLabels[i - 1]))
+                if(i == monthDateNo[x-1]) {
+                    monthDates.add(CalenderDay(i, monthDateLabels[x - 1]))
+                    x++
+                } else {
+                    monthDates.add(CalenderDay(i, ""))
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -187,6 +199,10 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
 
     private fun getCalenderDayNames(themeId: Int): ArrayList<String> {
         return appDatabase.calenderDataDao().getDayLabels(themeId) as ArrayList<String>
+    }
+
+    private fun getCalenderDayNo(themeId: Int): ArrayList<Int> {
+        return appDatabase.calenderDataDao().getDayNo(themeId) as ArrayList<Int>
     }
 
     /*[START] Code from Splash Activity to get the calender Data*/

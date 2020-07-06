@@ -18,7 +18,12 @@ interface CalendarsDataDao {
     @Query("SELECT calendarTitle from CalendarsData where calendarThemeId = :themeId")
     fun getDayLabels(themeId: Int) : List<String?>?
 
+    @Query("SELECT calendarDay from CalendarsData where calendarThemeId = :themeId")
+    fun getDayNo(themeId: Int) : List<Int?>?
+
     @Query("SELECT calendarId from CalendarsData where calendarDay = :date")
     fun getCalenderDayId(date: Int) : Int
 
+    @Query("DELETE FROM CalendarsData")
+    fun clearData()
 }
