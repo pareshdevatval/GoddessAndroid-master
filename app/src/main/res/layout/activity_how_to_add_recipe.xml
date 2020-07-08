@@ -39,7 +39,9 @@
                     style="@style/poppins_medium"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/lorem_ipsum_long"
+                    android:text="@string/lbl_add_recipe"
+                    android:autoLink="email"
+                    android:textColorLink="@color/white"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintTop_toTopOf="parent" />

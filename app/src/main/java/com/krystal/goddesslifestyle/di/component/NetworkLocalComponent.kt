@@ -67,6 +67,8 @@ interface NetworkLocalComponent {
     fun injectBreakfastFragment(breakfastFragment: BreakfastFragment)
     fun injectLunchFragment(lunchFragment: LunchFragment)
     fun injectDinnerFragment(dinnerFragment: DinnerFragment)
+    fun injectDessertFragment(dessertFragment: DessertFragment)
+    fun injectSnacksFragment(snacksFragment: SnacksFragment)
     fun injectDetailsFragment(detailsFragment: DetailsFragment)
     fun injectIngredientsFragment(ingredientsFragment: IngredientsFragment)
     fun injectHowToCookFragment(howToCookFragment: HowToCookFragment)

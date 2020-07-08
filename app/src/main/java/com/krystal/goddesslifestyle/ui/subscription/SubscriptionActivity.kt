@@ -245,6 +245,16 @@ class SubscriptionActivity : BaseActivity<SubscriptionViewModel>(), PurchasesUpd
             binding.premiumPlans.performClick()
             setPremiumPlansDropDown(binding.premiumPlans.tv_sub_desc)
         }
+
+        if(userSubscription!!.usSubscriptionPlanId?.contains(AppConstants.BASIC_MONTHLY_SKU, true)!!
+            || userSubscription!!.usSubscriptionPlanId?.contains(AppConstants.BASIC_YEARLY_SKU, true)!!){
+            binding.btnSubscribeNow.text = getString(R.string.lbl_upgrade_plan)
+        } else if(userSubscription!!.usSubscriptionPlanId?.contains(AppConstants.PREMIUM_MONTHLY_SKU, true)!!
+            || userSubscription!!.usSubscriptionPlanId?.contains(AppConstants.PREMIUM_YEARLY_SKU, true)!!) {
+            binding.btnSubscribeNow.text = getString(R.string.lbl_update_plan)
+        } else {
+            binding.btnSubscribeNow.text = getString(R.string.subscribe_now)
+        }
     }
 
     /*Drop down for Basic plans*/

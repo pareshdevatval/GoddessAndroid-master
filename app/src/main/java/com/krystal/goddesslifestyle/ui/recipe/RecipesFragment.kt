@@ -138,10 +138,12 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
         adapter.addFragment(BreakfastFragment.newInstance(), getString(R.string.recipe))
         adapter.addFragment(LunchFragment.newInstance(), getString(R.string.lunch))
         adapter.addFragment(DinnerFragment.newInstance(), getString(R.string.dinner))
+        adapter.addFragment(DessertFragment.newInstance(), getString(R.string.lbl_dessert))
+        adapter.addFragment(SnacksFragment.newInstance(), getString(R.string.lbl_snacks))
         binding.viewpager.adapter = adapter
         // selecting the default item based on the tab index received in intent
         binding.viewpager.currentItem = tabIndexToSelect
-        binding.viewpager.offscreenPageLimit = 2
+        binding.viewpager.offscreenPageLimit = 5
         binding.viewpager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
 
@@ -208,6 +210,12 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
                 decorateToolbar(R.string.recipe, R.color.green)
             }
             2 -> {
+                decorateToolbar(R.string.recipe, R.color.green)
+            }
+            3 -> {
+                decorateToolbar(R.string.recipe, R.color.green)
+            }
+            4 -> {
                 decorateToolbar(R.string.recipe, R.color.green)
             }
         }
@@ -288,13 +296,7 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
             if (subscriptionStatus == AppConstants.NO_SUBSCRIPTION) {
                 AppUtils.startSubscriptionActivity(context)
             } else {
-                startActivity(
-                    WebViewActivity.newInstance(
-                        context!!,
-                        "Add Recipe",
-                        AppConstants.DEMO_GOOGLE_URL
-                    )
-                )
+                context!!.startActivity(HowToAddRecipeActivity.newInstance(context!!))
                 AppUtils.startFromRightToLeft(context!!)
             }
         }
@@ -328,12 +330,17 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
                         val mFragment = adapter.getItem(0)
                         (mFragment as BreakfastFragment).setSearchAction("")
 
-
                         val mFragment1 = adapter.getItem(1)
                         (mFragment1 as LunchFragment).setSearchAction("")
 
                         val mFragment2 = adapter.getItem(2)
                         (mFragment2 as DinnerFragment).setSearchAction("")
+
+                        val mFragment3 = adapter.getItem(3)
+                        (mFragment3 as DessertFragment).setSearchAction("")
+
+                        val mFragment4 = adapter.getItem(4)
+                        (mFragment4 as SnacksFragment).setSearchAction("")
                         /*if (mFragment is BreakfastFragment) {
 
                             mFragment.setSearchAction("")
@@ -369,6 +376,14 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
                             mFragment.setSearchAction(searchvalue)
                         }
 
+                        if (mFragment is DessertFragment) {
+                            mFragment.setSearchAction(searchvalue)
+                        }
+
+                        if (mFragment is SnacksFragment) {
+                            mFragment.setSearchAction(searchvalue)
+                        }
+
                     }
                     return true
                 }
@@ -390,6 +405,14 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
             ColorTabAdapter.createColorTab(binding.tabLayout,
                 getString(R.string.dinner), ContextCompat.getColor(context!!, R.color.white),
                 resources.getDrawable(R.drawable.ic_green_dinner_tab)))
+        binding.tabLayout.addTab(
+            ColorTabAdapter.createColorTab(binding.tabLayout,
+                getString(R.string.lbl_dessert), ContextCompat.getColor(context!!, R.color.white),
+                resources.getDrawable(R.drawable.ic_dessert)))
+        binding.tabLayout.addTab(
+            ColorTabAdapter.createColorTab(binding.tabLayout,
+                getString(R.string.lbl_snacks), ContextCompat.getColor(context!!, R.color.white),
+                resources.getDrawable(R.drawable.ic_snacks)))
 
 
         binding.tabLayout.selectedTabWidth = AppUtils.getScreenWidth(context!!)/2
@@ -402,6 +425,12 @@ class RecipesFragment : BaseFragment<RecipeViewModel>() {
         }
         binding.tabLayout.getTabAt(2)?.tabView?.setOnClickListener {
             binding.viewpager.currentItem = 2
+        }
+        binding.tabLayout.getTabAt(3)?.tabView?.setOnClickListener {
+            binding.viewpager.currentItem = 3
+        }
+        binding.tabLayout.getTabAt(4)?.tabView?.setOnClickListener {
+            binding.viewpager.currentItem = 4
         }
 
         binding.tabLayout.selectedTabIndex = tabIndexToSelect

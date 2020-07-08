@@ -75,6 +75,8 @@
 
 \n\nIn consectetur eros eu arcu rutrum ultricies. Maecenas molestie nisi et ornare porttitor. Phasellus id malesuada nunc. Duis maximus ligula ut magna tincidunt malesuada. Integer mattis mi vel ante laoreet laoreet. Nullam et turpis vitae justo euismod luctus. Pellentesque vestibulum elit vitae orci laoreet molestie. </string>
 
+    <string name="lbl_add_recipe"> Hi Goddess! \n\n
+        To submit your recipe to possibly be shared in our library please send one or more photos of your yummy creation with instructions and ingredients to <u>info@goddesslifeapp.com</u>. Thank you for sharing and happy cooking!></string>
     <string name="goddess_of_the_month">Goddess of the Month</string>
 
 
@@ -135,6 +137,8 @@
 
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
+    <string name="lbl_dessert">Dessert</string>
+    <string name="lbl_snacks">Snacks</string>
     <string name="media_url_mp3"> https://storage.googleapis.com/exoplayer-test-media-0/play.mp3</string>
 
     <!--
@@ -175,7 +179,7 @@
     <string name="see_all_benifits">See All Benefits</string>
     <string name="see_less_benifits">See Less Benefits</string>
     <string name="lorem_ipsum_small">Lorem ipsum dolor sit amet, consecteur.</string>
-    <string name="subscribe_now">subscribe now</string>
+    <string name="subscribe_now">Subscribe Now</string>
     <string name="free_trial">Start your 7 days free trial</string>
     <string name="restore_purchase">Restore your purchase</string>
 
@@ -432,4 +436,6 @@
     <string name="msg_video_not_available">Oppss..Video not available.</string>
     <string name="download_error">Somthing went wrong.. Please try again !!</string>
     <string name="download_success">Video downloaded successfully!!</string>
+    <string name="lbl_upgrade_plan">Upgrade Plan</string>
+    <string name="lbl_update_plan">Update Plan</string>
 </resources>

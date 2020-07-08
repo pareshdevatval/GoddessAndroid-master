@@ -39,6 +39,8 @@ object ApiContants {
     const val RECIPE_TYPE_BREAKFAST="1"
     const val RECIPE_TYPE_LUNCH="2"
     const val RECIPE_TYPE_DINNER="3"
+    const val RECIPE_TYPE_DESSERT="4"
+    const val RECIPE_TYPE_SNACK="5"
 
     const val ADDRESS_ID = "address_id"
     const val PRODUCTS = "products"
