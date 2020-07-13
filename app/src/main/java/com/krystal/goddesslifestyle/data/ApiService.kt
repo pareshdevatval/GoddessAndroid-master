@@ -36,7 +36,7 @@ interface ApiService {
     fun apiSyncCalenderData(@QueryMap params: HashMap<String, String>): Observable<SyncCalenderResponse>
 
     @GET("sync_calendar_events")
-    fun apiSyncCalenderEventData(@QueryMap params: HashMap<String, String>): Observable<SyncCalenderEventResponse>
+    fun apiSyncCalenderEventData(@QueryMap params: HashMap<String, String>): Observable<CalenderResponse>
 
     @FormUrlEncoded
     @POST("user/login")

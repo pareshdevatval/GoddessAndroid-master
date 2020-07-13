@@ -3,6 +3,7 @@ package com.krystal.goddesslifestyle.viewmodels
 import android.app.Application
 import android.os.AsyncTask
 import android.text.format.DateFormat
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.krystal.goddesslifestyle.GoddessLifeStyleApp
@@ -19,6 +20,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import java.net.SocketTimeoutException
+import java.net.URLEncoder
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -42,6 +44,14 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         MutableLiveData<BaseResponse>()
     }
 
+    private val theme: MutableLiveData<Theme> by lazy {
+        MutableLiveData<Theme>()
+    }
+
+    fun getUpdatedTheme(): LiveData<Theme> {
+        return theme
+    }
+
     fun geTokenResponse(): LiveData<BaseResponse> {
         return updateTokenResponse
     }
@@ -53,7 +63,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         return sdf.format(calender.time)
     }
 
-    fun getMonthNumber() : Int {
+    fun getMonthNumber(): Int {
         val calender = Calendar.getInstance()
         return calender.get(Calendar.MONTH)
     }
@@ -70,7 +80,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         try {
             var x = 1
             for (i in 1..daysInMonth) {
-                if(i == monthDateNo[x-1]) {
+                if (i == monthDateNo[x - 1]) {
                     monthDates.add(CalenderDay(i, monthDateLabels[x - 1]))
                     x++
                 } else {
@@ -220,7 +230,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         val currentMonth = calender.get(Calendar.MONTH) + 1
         val currentYear = calender.get(Calendar.YEAR)
 
-        appDatabase.themeMasterDao().getThemeMaster(currentYear, currentMonth )?.let {
+        appDatabase.themeMasterDao().getThemeMaster(currentYear, currentMonth)?.let {
             return true
         }
         return false
@@ -243,7 +253,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     fun callSyncCalenderApi() {
         if (AppUtils.hasInternet(getApplication())) {
             val params = HashMap<String, String>()
-            params[ApiParam.KEY_SYNC_DATE] = prefsObj.syncDate!!
+            params[ApiParam.KEY_SYNC_DATE] = URLEncoder.encode(prefsObj.syncDate!!, "utf-8")
             // params[ApiParam.KEY_SYNC_DATE] = "2020-06-09 16:01:29"
             subscription = apiServiceObj
                 .apiSyncCalenderData(params)
@@ -259,16 +269,16 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
 
     private fun handleSyncResponse(response: SyncCalenderResponse) {
         AsyncTask.execute(Runnable {
-            updateDataInBackgroundThread(response)
             prefsObj.syncDate = response.server_date
-            callSyncCalenderEventApi()
+            updateDataInBackgroundThread(response)
         })
     }
 
     fun callSyncCalenderEventApi() {
         if (AppUtils.hasInternet(getApplication())) {
             val params = HashMap<String, String>()
-            params[ApiParam.KEY_SYNC_DATE] = prefsObj.syncCalenderEventDate!!
+            params[ApiParam.KEY_SYNC_DATE] =
+                URLEncoder.encode(prefsObj.syncCalenderEventDate!!, "utf-8")
             // params[ApiParam.KEY_SYNC_DATE] = "2020-06-09 16:01:29"
             subscription = apiServiceObj
                 .apiSyncCalenderEventData(params)
@@ -282,15 +292,80 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         }
     }
 
-    private fun handleSyncCalenderEventResponse(response: SyncCalenderEventResponse) {
+    private fun handleSyncCalenderEventResponse(response: CalenderResponse) {
         AsyncTask.execute(Runnable {
-            prefsObj.syncCalenderEventDate = response.server_date
+            prefsObj.syncCalenderEventDate = response.serverDate
             Observable.just(response)
                 .map {
-                    for (calenderData in it.result!!) {
-                        if (calenderData != null) {
-                            insertCalenderDataToDatabase(calenderData)
+                    if (response.status) {
+                        /*Checking for theme master data first
+                        * This will contain the theme id for current month and yer*/
+                        response.themeMaster?.let { themeMaster ->
+                            /*inserting the theme Master data to Room Database*/
+                            appDatabase.themeMasterDao().insert(themeMaster)
+                            /*Getting theme Data from Theme master object*/
+                            themeMaster.themesData?.let { theme ->
+                                /*Insert theme to db*/
+                                appDatabase.themeDao().insert(theme)
+
+                                /*Theme will contain the calender Data*/
+                                theme.calendarsData?.let { calenderData ->
+                                    /*Calender data would be an individual object per data.
+                                    * So this loop will iterate for the DAY_OF_MONTH times*/
+                                    for (calender in calenderData) {
+                                        calender?.let { cal ->
+
+                                            // we can get today's recipe id from currently selected calenderDay
+                                            val todayRecipeIds = appDatabase.todaysRecipeDao()
+                                                .getTodayRecipeId(cal.calendarId)
+                                            /*And from today's recipe id, We can get the object of Recipe*/
+                                            for (id in todayRecipeIds) {
+                                                val recipe = appDatabase.recipeDao().getRecipe(id)
+                                               // appDatabase.recipeDao().deleteRecipes(recipe!!)
+                                            }
+
+                                            for (journal in calender.calendarJournalPrompts!!) {
+                                                //appDatabase.todaysJournalDao().deleteJournal(journal!!)
+                                            }
+
+                                            // we can get today's practice id from currently selected calenderDay
+                                            val todayPracticeId = appDatabase.todaysPracticeDao()
+                                                .getTodayPracticeId(cal.calendarId)
+                                            /*And from today's practice id, We can get the object of Practice*/
+                                            val practice = appDatabase.practiceDao()
+                                                .getPractice(todayPracticeId)
+
+
+                                            practice?.let { prac ->
+                                                //appDatabase.practiceDao().deletePractice(prac)
+                                            }
+
+                                            // we can get today's journal id from currently selected calenderDay
+                                            val todayJournalId = appDatabase.todaysJournalDao()
+                                                .getTodayJournalId(cal.calendarId)
+                                            /*And from today's journal id, We can get the object of Journal*/
+                                            val journal =
+                                                appDatabase.journalDao().getJournal(todayJournalId)
+
+                                            journal?.let { jrnl ->
+                                                appDatabase.journalDao().deleteJournal(jrnl)
+                                            }
+
+                                            /* insertCalenderRacipes(cal)
+                                             insertCalenderJournals(cal)
+                                             insertCalenderPractices(cal)*/
+
+                                            insertCalenderDataToDatabase(cal)
+                                        }
+
+                                    }
+
+
+                                }
+                            }
                         }
+                    } else {
+                        apiErrorMessage.postValue(response.message)
                     }
                 }
                 .subscribeOn(Schedulers.io())
@@ -303,16 +378,37 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     private fun updateDataInBackgroundThread(response: SyncCalenderResponse) {
         Observable.just(response)
             .map {
-                val calenderData = response.result!!.themes_data!!.calendars_data
-                if (calenderData != null) {
-                    if (calenderData.calendar_recipes != null) {
-                        insertOrUpdateRecipeData(calenderData.calendar_recipes!!)
+                if (response.result!!.themes_data != null) {
+                    val calender = Calendar.getInstance()
+                    val currentMonth = calender.get(Calendar.MONTH) + 1
+                    val currentYear = calender.get(Calendar.YEAR)
+
+                    val themeData = response.result!!.themes_data
+
+                    appDatabase.themeMasterDao().getThemeMaster(currentYear, currentMonth)?.let {
+                        if (appDatabase.themeDao().getCurrentMonthTheme(it.taThemeId) == null)
+                            Log.e("", "There is no calendar data available")
+                        else {
+                            val themes = appDatabase.themeDao().getCurrentMonthTheme(it.taThemeId)
+                            themes!!.themeTitle = themeData!!.theme_title!!
+                            themes.themeImage = themeData.theme_image!!
+                            appDatabase.themeDao().insert(themes)
+                            theme.postValue(themes)
+                        }
                     }
-                    if (calenderData.calendar_practics != null) {
-                        insertOrUpdatePracticeData(calenderData.calendar_practics!!)
-                    }
-                    if (calenderData.calendar_journal_prompts != null) {
-                        insertOrUpdateJournalData(calenderData.calendar_journal_prompts!!)
+
+                    val calenderData = response.result!!.themes_data!!.calendars_data
+
+                    if (calenderData != null) {
+                        if (calenderData.calendar_recipes != null) {
+                            insertOrUpdateRecipeData(calenderData.calendar_recipes!!)
+                        }
+                        if (calenderData.calendar_practics != null) {
+                            insertOrUpdatePracticeData(calenderData.calendar_practics!!)
+                        }
+                        if (calenderData.calendar_journal_prompts != null) {
+                            insertOrUpdateJournalData(calenderData.calendar_journal_prompts!!)
+                        }
                     }
                 }
             }
@@ -351,6 +447,8 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         AsyncTask.execute(Runnable {
             insertDataInBackgroundThread(response)
             prefsObj.syncDate = response.serverDate
+            prefsObj.syncCalenderEventDate = response.serverDate
+
         })
     }
 
@@ -402,24 +500,32 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
         appDatabase.calenderDataDao().insert(cal)
 
         /*Getting Today's Practice*/
-        cal.calendarPractics?.let { todayPractices ->
-            /*Iterate over all practices of today
-                                                            * Currently it is a single practice currently, but in future requirment gets changes,
-                                                            * Then we cal tackle with that*/
-            for (todayPractice in todayPractices) {
-                todayPractice?.let { todaysPractice ->
-                    /*insert today practice*/
-                    appDatabase.todaysPracticeDao().insert(todaysPractice)
+        insertCalenderPractices(cal)
 
-                    /*Getting practices from today practice*/
-                    todaysPractice.practics?.let { practices ->
-                        insertOrUpdatePracticeData(practices)
+        /*Getting today's RecipeOfTheMonth*/
+        insertCalenderRacipes(cal)
+
+        /*Same way, Getting today's journals*/
+        insertCalenderJournals(cal)
+    }
+
+    private fun insertCalenderJournals(cal: CalendarsData) {
+        cal.calendarJournalPrompts?.let { todayJournals ->
+            for (todayJournal in todayJournals) {
+                todayJournal?.let { todJournal ->
+                    /*insert today Journal's data*/
+                    appDatabase.todaysJournalDao().insert(todJournal)
+
+                    /*Iterating over journals*/
+                    todJournal.journalPrompts?.let { journals ->
+                        insertOrUpdateJournalData(journals)
                     }
                 }
             }
         }
+    }
 
-        /*Getting today's RecipeOfTheMonth*/
+    private fun insertCalenderRacipes(cal: CalendarsData) {
         cal.calendarRecipes?.let { todayRecipes ->
             for (todayRecipe in todayRecipes) {
                 todayRecipe?.let { todayRec ->
@@ -432,18 +538,22 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                     }
                 }
             }
+        }
+    }
 
-            /*Same way, Getting today's journals*/
-            cal.calendarJournalPrompts?.let { todayJournals ->
-                for (todayJournal in todayJournals) {
-                    todayJournal?.let { todJournal ->
-                        /*insert today Journal's data*/
-                        appDatabase.todaysJournalDao().insert(todJournal)
+    private fun insertCalenderPractices(cal: CalendarsData) {
+        cal.calendarPractics?.let { todayPractices ->
+            /*Iterate over all practices of today
+            * Currently it is a single practice currently, but in future requirment gets changes,
+            * Then we cal tackle with that*/
+            for (todayPractice in todayPractices) {
+                todayPractice?.let { todaysPractice ->
+                    /*insert today practice*/
+                    appDatabase.todaysPracticeDao().insert(todaysPractice)
 
-                        /*Iterating over journals*/
-                        todJournal.journalPrompts?.let { journals ->
-                            insertOrUpdateJournalData(journals)
-                        }
+                    /*Getting practices from today practice*/
+                    todaysPractice.practics?.let { practices ->
+                        insertOrUpdatePracticeData(practices)
                     }
                 }
             }
@@ -522,6 +632,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
 
     private fun handleError(error: Throwable) {
         onApiFinish()
+        error.printStackTrace()
         if (error is SocketTimeoutException) {
             AppUtils.showToast(
                 getApplication(),

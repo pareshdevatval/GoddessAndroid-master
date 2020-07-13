@@ -1,9 +1,7 @@
 package com.krystal.goddesslifestyle.data.response.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
+import com.krystal.goddesslifestyle.data.response.TodaysJournal
 import com.krystal.goddesslifestyle.data.response.TodaysPractic
 
 /**
@@ -17,4 +15,7 @@ interface TodaysPracticeDao {
 
     @Query("SELECT cpPracticeId from TodaysPractic where cpCalendarId = :date")
     fun getTodayPracticeId(date: Int) : Int
+
+    @Delete
+    fun deletePractice(todaysPractice: TodaysPractic)
 }

@@ -156,6 +156,7 @@ class HomeFragment : BaseFragment<HomeViewModel>(), GoddessCalenderView.Calender
         viewModel.observeIfCalenderDataStored().observe(viewLifecycleOwner, calenderDataObserver)
         viewModel.getShareApiResponse().observe(viewLifecycleOwner, shareApiResponseObserver)
         viewModel.geTokenResponse().observe(viewLifecycleOwner, tokenResponseObserver)
+        viewModel.getUpdatedTheme().observe(viewLifecycleOwner, themUpdateObserver)
 
         viewModel.configLoadingVisibility.observe(
             viewLifecycleOwner,
@@ -199,6 +200,10 @@ class HomeFragment : BaseFragment<HomeViewModel>(), GoddessCalenderView.Calender
         if (it.status) {
             prefs.firebaseToken = token
         }
+    }
+
+    private val themUpdateObserver = Observer<Theme> {
+        setCalenderTitleAndImage(it)
     }
 
     private fun showCalenderData() {
@@ -264,31 +269,28 @@ class HomeFragment : BaseFragment<HomeViewModel>(), GoddessCalenderView.Calender
 
     private fun initTopBarFromTheme() {
         // get current month theme from database and set data
-        if(viewModel.getThisMonthTheme() !=null) {
+        if (viewModel.getThisMonthTheme() != null) {
             binding.shareLayout.visibility = View.VISIBLE
             viewModel.getThisMonthTheme()?.let { theme ->
                 // toolbar title
-                setToolbarTitle(theme.themeTitle)
-
-                calenderThemeImage = AppUtils.generateImageUrl(theme.themeImage)
-                calenderThemeImagePathOnly = theme.themeImage
-
-                /*binding.ivGoddess.post {
-                context?.let {
-                    AppUtils.loadImageThroughGlide(
-                        it, binding.ivGoddess,
-                        AppUtils.generateImageUrl(theme.themeImage, binding.ivGoddess.width, binding.ivGoddess.height),
-                        R.drawable.ic_placeholder_rect
-                    )
-                }
-            }*/
-                loadCalenderThemeImage()
+                setCalenderTitleAndImage(theme)
                 // initializing calender form calender days from db
                 initCalender(theme)
             }
-        }else{
+        } else {
             binding.shareLayout.visibility = View.GONE
         }
+    }
+
+    private fun setCalenderTitleAndImage(
+        theme: Theme
+    ) {
+        setToolbarTitle(theme.themeTitle)
+
+        calenderThemeImage = AppUtils.generateImageUrl(theme.themeImage)
+        calenderThemeImagePathOnly = theme.themeImage
+
+        loadCalenderThemeImage()
     }
 
     // initialize the calender
@@ -447,6 +449,10 @@ class HomeFragment : BaseFragment<HomeViewModel>(), GoddessCalenderView.Calender
         super.onResume()
         if (prefs.syncDate!!.isNotEmpty()) {
             viewModel.callSyncCalenderApi()
+        }
+
+        if (prefs.syncCalenderEventDate!!.isNotEmpty()) {
+            viewModel.callSyncCalenderEventApi()
         }
     }
 

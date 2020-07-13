@@ -1,10 +1,8 @@
 package com.krystal.goddesslifestyle.data.response.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.krystal.goddesslifestyle.data.response.CalendarsData
+import com.krystal.goddesslifestyle.data.response.Recipe
 
 /**
  * Created by Bhargav Thanki on 28 February,2020.
@@ -24,6 +22,12 @@ interface CalendarsDataDao {
     @Query("SELECT calendarId from CalendarsData where calendarDay = :date")
     fun getCalenderDayId(date: Int) : Int
 
+    @Query("SELECT * from CalendarsData where calendarId = :calId")
+    fun getCalenderDataFromId(calId: Int) : CalendarsData
+
     @Query("DELETE FROM CalendarsData")
     fun clearData()
+
+    @Delete
+    fun deleteCalendarsData(calData: CalendarsData?)
 }

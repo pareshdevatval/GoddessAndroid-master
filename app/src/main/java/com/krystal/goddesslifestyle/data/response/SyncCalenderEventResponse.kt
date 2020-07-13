@@ -13,6 +13,4 @@ data class SyncCalenderEventResponse(
     var message: String? = "",
     var status: Boolean? = false,
     var code: Int? = 0
-) : Parcelable {
-
-}
+) : Parcelable
