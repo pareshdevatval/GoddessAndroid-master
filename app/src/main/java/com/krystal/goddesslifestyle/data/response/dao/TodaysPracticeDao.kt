@@ -16,6 +16,7 @@ interface TodaysPracticeDao {
     @Query("SELECT cpPracticeId from TodaysPractic where cpCalendarId = :date")
     fun getTodayPracticeId(date: Int) : Int
 
-    @Delete
-    fun deletePractice(todaysPractice: TodaysPractic)
+    @Query("DELETE FROM TodaysPractic WHERE cpCalendarId = :date")
+    fun deletePractice(date: Int) : Int
+
 }

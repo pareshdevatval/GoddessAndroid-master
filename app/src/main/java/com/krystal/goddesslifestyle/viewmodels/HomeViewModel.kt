@@ -279,7 +279,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             val params = HashMap<String, String>()
             params[ApiParam.KEY_SYNC_DATE] =
                 URLEncoder.encode(prefsObj.syncCalenderEventDate!!, "utf-8")
-            // params[ApiParam.KEY_SYNC_DATE] = "2020-06-09 16:01:29"
+            //params[ApiParam.KEY_SYNC_DATE] = URLEncoder.encode("2020-07-14 05:28:06", "utf-8")
             subscription = apiServiceObj
                 .apiSyncCalenderEventData(params)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -316,40 +316,16 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                                         calender?.let { cal ->
 
                                             // we can get today's recipe id from currently selected calenderDay
-                                            val todayRecipeIds = appDatabase.todaysRecipeDao()
-                                                .getTodayRecipeId(cal.calendarId)
-                                            /*And from today's recipe id, We can get the object of Recipe*/
-                                            for (id in todayRecipeIds) {
-                                                val recipe = appDatabase.recipeDao().getRecipe(id)
-                                               // appDatabase.recipeDao().deleteRecipes(recipe!!)
-                                            }
-
-                                            for (journal in calender.calendarJournalPrompts!!) {
-                                                //appDatabase.todaysJournalDao().deleteJournal(journal!!)
-                                            }
+                                            appDatabase.todaysRecipeDao()
+                                                .deleteRecipes(cal.calendarId)
 
                                             // we can get today's practice id from currently selected calenderDay
-                                            val todayPracticeId = appDatabase.todaysPracticeDao()
-                                                .getTodayPracticeId(cal.calendarId)
-                                            /*And from today's practice id, We can get the object of Practice*/
-                                            val practice = appDatabase.practiceDao()
-                                                .getPractice(todayPracticeId)
-
-
-                                            practice?.let { prac ->
-                                                //appDatabase.practiceDao().deletePractice(prac)
-                                            }
+                                            appDatabase.todaysPracticeDao()
+                                                .deletePractice(cal.calendarId)
 
                                             // we can get today's journal id from currently selected calenderDay
-                                            val todayJournalId = appDatabase.todaysJournalDao()
-                                                .getTodayJournalId(cal.calendarId)
-                                            /*And from today's journal id, We can get the object of Journal*/
-                                            val journal =
-                                                appDatabase.journalDao().getJournal(todayJournalId)
-
-                                            journal?.let { jrnl ->
-                                                appDatabase.journalDao().deleteJournal(jrnl)
-                                            }
+                                            appDatabase.todaysJournalDao()
+                                                .deleteJournal(cal.calendarId)
 
                                             /* insertCalenderRacipes(cal)
                                              insertCalenderJournals(cal)

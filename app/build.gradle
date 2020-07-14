@@ -20,8 +20,8 @@ android {
         applicationId "com.krystal.goddesslifestyle"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 20
-        versionName "2.0"
+        versionCode 22
+        versionName "2.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true

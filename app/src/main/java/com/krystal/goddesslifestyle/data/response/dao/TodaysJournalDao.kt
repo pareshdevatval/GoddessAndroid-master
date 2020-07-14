@@ -16,6 +16,7 @@ interface TodaysJournalDao {
     @Query("SELECT cjpJpId from TodaysJournal where cjpCalendarId = :date")
     fun getTodayJournalId(date: Int) : Int
 
-    @Delete
-    fun deleteJournal(todaysJournal: TodaysJournal)
+    @Query("DELETE FROM TodaysJournal WHERE cjpCalendarId = :date")
+    fun deleteJournal(date: Int) : Int
+
 }

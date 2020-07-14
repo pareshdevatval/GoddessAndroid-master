@@ -13,17 +13,17 @@ interface CalendarsDataDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(calData: CalendarsData?)
 
-    @Query("SELECT calendarTitle from CalendarsData where calendarThemeId = :themeId")
-    fun getDayLabels(themeId: Int) : List<String?>?
+    @Query("SELECT calendarTitle from CalendarsData where calendarThemeId = :themeId order by calendarDay")
+    fun getDayLabels(themeId: Int): List<String?>?
 
-    @Query("SELECT calendarDay from CalendarsData where calendarThemeId = :themeId")
-    fun getDayNo(themeId: Int) : List<Int?>?
+    @Query("SELECT calendarDay from CalendarsData where calendarThemeId = :themeId order by calendarDay")
+    fun getDayNo(themeId: Int): List<Int?>?
 
     @Query("SELECT calendarId from CalendarsData where calendarDay = :date")
-    fun getCalenderDayId(date: Int) : Int
+    fun getCalenderDayId(date: Int): Int
 
     @Query("SELECT * from CalendarsData where calendarId = :calId")
-    fun getCalenderDataFromId(calId: Int) : CalendarsData
+    fun getCalenderDataFromId(calId: Int): CalendarsData
 
     @Query("DELETE FROM CalendarsData")
     fun clearData()

@@ -1,6 +1,7 @@
 package com.krystal.goddesslifestyle.data.response.dao
 
 import androidx.room.*
+import com.krystal.goddesslifestyle.data.response.Recipe
 import com.krystal.goddesslifestyle.data.response.TodaysRecipe
 
 /**
@@ -13,5 +14,8 @@ interface TodaysRecipeDao {
     fun insert(todaysRecipe: TodaysRecipe)
 
     @Query("SELECT crRecipeId from TodaysRecipe where crCalendarId = :date")
-    fun getTodayRecipeId(date: Int) : List<Int>
+    fun getTodayRecipeId(date: Int): List<Int>
+
+    @Query("DELETE FROM TodaysRecipe WHERE crCalendarId = :date")
+    fun deleteRecipes(date: Int)
 }

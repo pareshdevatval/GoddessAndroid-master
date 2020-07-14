@@ -203,7 +203,7 @@ class GoddessCalenderView : LinearLayout {
             /*Date click listener*/
             tvDate.setOnClickListener {
 
-                if(tvDesc.text.isEmpty()) {
+                if(tvDate.text.isEmpty()) {
                     return@setOnClickListener
                 }
                 // We will only select the dates, that are actually a date of the month
