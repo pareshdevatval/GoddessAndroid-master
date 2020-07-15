@@ -2,6 +2,7 @@ package com.krystal.goddesslifestyle.ui.of_the_month
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.krystal.goddesslifestyle.R
 import com.krystal.goddesslifestyle.base.BaseFragment
 import com.krystal.goddesslifestyle.base.BaseViewModel
+import com.krystal.goddesslifestyle.data.response.OfTheMonth
 import com.krystal.goddesslifestyle.data.response.Recipe
 import com.krystal.goddesslifestyle.data.response.RecipeOfTheMonth
 import com.krystal.goddesslifestyle.databinding.FragmentRecipeOfTheMonthBinding
@@ -42,6 +44,7 @@ class RecipeOfTheMonthFragment : BaseFragment<BaseViewModel>(), View.OnClickList
     private lateinit var binding: FragmentRecipeOfTheMonthBinding
 
     private var currentRecipe: RecipeOfTheMonth? = null
+    var ofTheMonthData : OfTheMonth? = null
 
     override fun getViewModel(): BaseViewModel {
         viewModel = ViewModelProvider(this).get(BaseViewModel::class.java)
@@ -105,6 +108,23 @@ class RecipeOfTheMonthFragment : BaseFragment<BaseViewModel>(), View.OnClickList
                     }
                 }
             }
+
+            val result = it
+            result.let { video -> {
+                binding.ivRecipeVideo.post {
+                    context?.let {
+                        AppUtils.loadImageThroughGlide(
+                            it, binding.ivRecipeVideo,
+                            AppUtils.generateImageUrl(
+                                video!!.video?.vlImage, binding.ivRecipeVideo.width,
+                                binding.ivRecipeVideo.height
+                            ),
+                            R.drawable.ic_placeholder_rect
+                        )
+                    }
+                }
+            }
+            }
         }
     }
 
@@ -164,6 +184,24 @@ class RecipeOfTheMonthFragment : BaseFragment<BaseViewModel>(), View.OnClickList
                             AppUtils.startFromRightToLeft(context!!)
                         }
                     }
+                }
+            }
+            R.id.ivPlay -> {
+                context?.let {
+                    val subscriptionStatus = AppUtils.getUserSubscription(it)
+                    if (subscriptionStatus == AppConstants.NO_SUBSCRIPTION) {
+                        AppUtils.startSubscriptionActivity(context)
+                    } else {
+                        //AppUtils.showToast(it, "Under Development")
+                        //AppUtils.showToast(it, "Playing test video")
+                        (activity as OfTheMonthActivity).ofTheMonthData?.let {
+                            val recipeVideo = it.video
+                            context?.let {
+                                startActivity(PlayVideoActivity.newInstance(it, recipeVideo?.vlVideo!!))
+                            }
+                        }
+                    }
+
                 }
             }
         }

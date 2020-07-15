@@ -17,6 +17,10 @@ data class OfTheMonth(
     @SerializedName("teachers")
     var teachers: TeacherOfTheMonth? = null,
 
+    //@Ignore
+    @SerializedName("video")
+    var video: Video? = null,
+
     @SerializedName("month")
     var month: String? = null,
     @SerializedName("year")

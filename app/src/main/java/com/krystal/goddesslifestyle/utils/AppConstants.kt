@@ -7,6 +7,7 @@ object AppConstants {
 
     const val IMAGE_LIST: String = "imageList"
     const val Images_URL: String = "imageUrl"
+    const val ZOOM_IMAGE_URL: String = "ZoomImageUrl"
     const val SET_ADDRESS_REQUEST_CODE = 15
 
     const val MONTHLY_SKU = "monthly_subscription"

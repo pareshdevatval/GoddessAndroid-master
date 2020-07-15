@@ -883,7 +883,7 @@ object AppUtils {
     fun getBasicBenefits(): ArrayList<Benefit> {
         val basicBenefits: ArrayList<Benefit> = ArrayList()
         basicBenefits.add(Benefit("Calender"))
-        basicBenefits.add(Benefit("Video library"))
+        basicBenefits.add(Benefit("Goddess Library"))
         basicBenefits.add(Benefit("Receipes"))
         basicBenefits.add(Benefit("Leaderboard", false))
         basicBenefits.add(Benefit("Community", false))
@@ -896,7 +896,7 @@ object AppUtils {
     fun getPremiumBenefits(): ArrayList<Benefit> {
         val premiumBenefits: ArrayList<Benefit> = ArrayList()
         premiumBenefits.add(Benefit("Calender"))
-        premiumBenefits.add(Benefit("Video library"))
+        premiumBenefits.add(Benefit("Goddess Library"))
         premiumBenefits.add(Benefit("Receipes"))
         premiumBenefits.add(Benefit("Leaderboard"))
         premiumBenefits.add(Benefit("Community"))

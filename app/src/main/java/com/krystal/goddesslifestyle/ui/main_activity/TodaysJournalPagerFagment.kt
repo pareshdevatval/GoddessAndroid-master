@@ -1,5 +1,6 @@
 package com.krystal.goddesslifestyle.ui.main_activity
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -16,9 +17,12 @@ import com.krystal.goddesslifestyle.data.ApiService
 import com.krystal.goddesslifestyle.data.Prefs
 import com.krystal.goddesslifestyle.data.db.AppDatabase
 import com.krystal.goddesslifestyle.data.response.Journal
+import com.krystal.goddesslifestyle.data.response.MediaData
 import com.krystal.goddesslifestyle.databinding.PagerFragmentTodaysJournalBinding
 import com.krystal.goddesslifestyle.di.component.DaggerNetworkLocalComponent
 import com.krystal.goddesslifestyle.di.component.NetworkLocalComponent
+import com.krystal.goddesslifestyle.ui.activity.FullScreenImageActivity
+import com.krystal.goddesslifestyle.ui.activity.ZoomImageActivity
 import com.krystal.goddesslifestyle.utils.ApiContants
 import com.krystal.goddesslifestyle.utils.AppConstants
 import com.krystal.goddesslifestyle.utils.AppUtils
@@ -115,6 +119,12 @@ class TodaysJournalPagerFagment: BaseFragment<TodaysJournalViewModel>(), View.On
                         R.drawable.ic_placeholder_square)
                 }
             }
+        }
+
+        binding.imageView.setOnClickListener {
+            val intent = Intent(context, ZoomImageActivity::class.java)
+            intent.putExtra(AppConstants.ZOOM_IMAGE_URL, journal?.jpImage)
+            context!!.startActivity(intent)
         }
     }
 
