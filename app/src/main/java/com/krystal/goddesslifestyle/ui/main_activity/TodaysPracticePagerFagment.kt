@@ -130,22 +130,22 @@ class TodaysPracticePagerFagment : BaseFragment<TodaysPracticeViewModel>(), View
         practice = appDatabase.practiceDao().getPractice(todayPracticeId)
 
 
-        practice?.let { prac ->
+        if (practice != null) {
             //videoUrl="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            videoUrl = prac.practiceVideo
-            binding.tvPracticieName.text = prac.practiceTitle
+            videoUrl = practice!!.practiceVideo
+            binding.tvPracticieName.text = practice!!.practiceTitle
             binding.ivPracticieThumbnail.post {
                 context?.let {
                     Log.e(
                         "PRACTICE", AppUtils.generateImageUrl(
-                            prac.practiceImage, binding.ivPracticieThumbnail.width,
+                            practice!!.practiceImage, binding.ivPracticieThumbnail.width,
                             binding.ivPracticieThumbnail.height
                         )
                     )
                     AppUtils.loadImageThroughGlide(
                         it, binding.ivPracticieThumbnail,
                         AppUtils.generateImageUrl(
-                            prac.practiceImage, binding.ivPracticieThumbnail.width,
+                            practice!!.practiceImage, binding.ivPracticieThumbnail.width,
                             binding.ivPracticieThumbnail.height
                         ),
                         R.drawable.ic_placeholder_rect
@@ -154,7 +154,8 @@ class TodaysPracticePagerFagment : BaseFragment<TodaysPracticeViewModel>(), View
             }
             /*Now, if Practice is not null, then go forward and look for the equipment used for this pratice
             * Getting equipment id based on practice*/
-            val equipmentId = appDatabase.practiceEquipmentDao().getEquipmentId(prac.practiceId)
+            val equipmentId =
+                appDatabase.practiceEquipmentDao().getEquipmentId(practice!!.practiceId)
             /*and from equipment id, getting an object of the equipment*/
             val equipment = appDatabase.equipmentDao().getEquipment(equipmentId)
 
@@ -181,14 +182,26 @@ class TodaysPracticePagerFagment : BaseFragment<TodaysPracticeViewModel>(), View
                     }
                 }
             }
+        } else {
+            binding.tvPracticieName.text = ""
+            AppUtils.loadImageThroughGlide(
+                context!!, binding.ivPracticieThumbnail,
+                "",
+                R.drawable.ic_placeholder_rect
+            )
+
+            AppUtils.loadImageThroughGlide(
+                context!!, binding.ivPracticeEquipment, "", R.drawable.ic_placeholder_square
+            )
         }
     }
 
     @SuppressLint("CheckResult")
     override fun onClick(v: View?) {
-        if (todayPracticeId == -1) {
+        if (todayPracticeId == -1 || practice == null) {
             return
         }
+
         when (v?.id) {
             R.id.shareLayout -> {
                 context?.let {
